@@ -1,6 +1,6 @@
 ### Hi there 👋
 
-This is a repositry where stuff might get posted one day
+This is a place where stuff might get posted one day
 
 eventually
 
