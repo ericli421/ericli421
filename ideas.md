@@ -1,4 +1,8 @@
 This is a detailed list of ideas I had that I'm writing down here. I might do them in the future, emphasis on might
+* [Ambitious ideas list](#ambitious-ideas)
+* [Major ideas list](#major-ideas)
+* [Minor ideas list](#minor-ideas)
+
 
 # Ambitious Ideas
 
