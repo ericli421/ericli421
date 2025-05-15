@@ -83,9 +83,11 @@ I'm dreading art and music the most, and level design the second most, as I've s
 The following ideas are smaller scale and may take months to complete. All these projects have to goal to further my skills and knowledge in the field,
 while simultaniously creating something cool to show to the world. They will all feature a brief description
 
-### Useless programming language
-An idea inspired by [Brainf&^k](https://en.wikipedia.org/wiki/Brainfuck) and [Chicken](https://esolangs.org/wiki/Chicken). The goal is to create the most confusing, impractical and useless programming language possible 
-that would make even the most confusing C++ gibberish look easily readable in comparison, while having good documentation, maybe.
+### Esoteric programming language
+An esoteric programming language is designed to experiement with weird ideas with the most famous one being [Brainf&^k](https://en.wikipedia.org/wiki/Brainfuck). 
+They are not designed for main stream use and are generally so confusing and unintuitive to use that 
+that they make even the most confusing C++ gibberish look easily readable in comparison.
+The goal for me in this idea would be to brainstorm the quirkiest idea for a programming language I can come up with and fully develop a compiler to make it hypoethetically usable to create any program possible
 
 **Objectives:**
 - Develop a working compiler for a programming language
@@ -95,7 +97,7 @@ that would make even the most confusing C++ gibberish look easily readable in co
 **Status:** Not started
 
 ### Discord Chat bot
-As a regular discord user, I do want to create a bot that can do a lot of things. This can be very simple, but I do want to try and work on more advanced features.
+As a regular discord user, I want to create a bot that can do a lot of things. This can be very simple, but I do want to try and work on more advanced features.
 
 **Objectives:**
 - Familiarize with developing a chat bot application
@@ -121,7 +123,7 @@ Current ideas:
 **Status:** Not started
 
 
-## Algorithm/Data Structure visualizer
+### Algorithm/Data Structure visualizer
 I am ***(currently)*** a big fan of various algorithms and data structures. I want to be able to build an app or site that allows me to see various algorithms in action or a visualization of popular data strctures. 
 Current ones I want to explore are sorting algorithms and trees.
 
