@@ -2,6 +2,7 @@ This is a detailed list of ideas I had that I'm writing down here. I might do th
 * [Ambitious ideas list](#ambitious-ideas)
 * [Major ideas list](#major-ideas)
 * [Minor ideas list](#minor-ideas)
+* [Scrapped ideas](#scrapped-ideas)
 
 
 # Ambitious Ideas
@@ -10,42 +11,6 @@ The following ideas are incredibly large scale and would either require the supp
 These projects would fall way beyond the scope of learning, and all feature a unique goal to contribute to society in some way, shape, or form.
 Due to the scope of these ideas, they will be described very throuroughly as I list my thoughts about each of them
 
-## University Course Database
-
-A database for the courses of most (hopefully all) high-level education institutions in the world, 
-relating to the courses they are equivalent to in other institutions, free online resources to learn the material presented in those courses, 
-and general guidance to students who are looking to take those courses about what they're learning and how it will help them move forward
-
-### Motivation
-I had this idea one day when I was reflecting on my university degree. Being a student in Computer Science studying during the rise of Artificial Intelligence
-I was evaluating my choice of planning to not take an advanced Statistics course in my degree.
-This is when I thought that it would be nice to just take the course material on my free time without the stress of a university course load.
-
-Finding online resources to study each topic should be pretty easy in the digital era we live in. 
-The difficult part is figuring out what exactly you need. The most popular online resources go with a very surface level overview of every topic.
-This is fine for the lower level courses, but isn't enough as you progress higher into your education. 
-This is where the root of this idea stems from. A database for every course with free online resources 
-that can be used to either learn or enrich your knowledge of the course's topics
-
-### Objectives
-- Make High-Level Education more accessible to people overall
-- Relieve stress in students by allowing an easy way to delve into a course's material
-
-### Restrictions and Drawbacks
-A major restriction about this idea is the sheer scope of it. It would take hundreds of willing contributors to complete the information database about a
-single high-level education institution, let alone all of them. Not to mention mention all the different languages that would need to be supported, 
-the verification of copyright rights of each resource. 
-
-Even if the database gets fully written, it would still need to be regularly maintained, such as filtering trolls and updating information. This is especially true
-for higher level courses about topics that aren't set in stone. An example would be a theoretical biology course that studies a certain model of a protein. 
-If later research determine that the protein's role or model is much different than what was previously hypothesized, then that entire section would have to be updated. 
-All fields might encounter this problem at some point with some of the most likely including most STEM fields, topics related to human behaviour, 
-and topics about the recent world.
-
-This is also a lot less helpful when relating to courses that aren't theoretical in nature. This database would only really be helpful for theory focused topics/classes.
-This isn't necessarily bad, but it is a drawback that might hurt the motivation of this project ever being finished.
-
-**Status:** Not started
 
 ## Full fledged Video Game
 
@@ -112,7 +77,7 @@ Current ideas:
 
 - Taylor Swift lyrics
 - Stupid short story prompts
-- Images
+- ~Images~
 - AI girlfriend chat
 
 **Objectives:**
@@ -140,4 +105,48 @@ The following ideas are very small scale and shouldn't take longer than a month 
 - [ ] **[r/badUIBattles](https://www.reddit.com/r/badUIbattles/) entry:** An entry that can safely be posted into that subreddit. Promote inefficiency!
 - [ ] **Score counter:** Score counter application I can use in badminton tournaments.
 - [ ] **Clone of popular video game:** Will familiarize me with game engine while simultaneously allow me to go completely meme mode.
-- [ ] **Finish the stupid [blender donut](https://www.youtube.com/watch?v=4haAdmHqGOw):** I tried unsuccessfully finishing this tutorial 3 times already :sob:
+- [x] **Finish the stupid [blender donut](https://www.youtube.com/watch?v=4haAdmHqGOw):** I tried unsuccessfully finishing this tutorial 3 times already :sob:
+- [ ] **QR Code generator**: Mostly to learn how QR codes actually work, but also just sounds like a fun project.
+
+# Scrapped Ideas
+
+## University Course Database (Originally ambitious idea)
+
+A database for the courses of most (hopefully all) high-level education institutions in the world, 
+relating to the courses they are equivalent to in other institutions, free online resources to learn the material presented in those courses, 
+and general guidance to students who are looking to take those courses about what they're learning and how it will help them move forward
+
+### Motivation
+I had this idea one day when I was reflecting on my university degree. Being a student in Computer Science studying during the rise of Artificial Intelligence
+I was evaluating my choice of planning to not take an advanced Statistics course in my degree.
+This is when I thought that it would be nice to just take the course material on my free time without the stress of a university course load.
+
+Finding online resources to study each topic should be pretty easy in the digital era we live in. 
+The difficult part is figuring out what exactly you need. The most popular online resources go with a very surface level overview of every topic.
+This is fine for the lower level courses, but isn't enough as you progress higher into your education. 
+This is where the root of this idea stems from. A database for every course with free online resources 
+that can be used to either learn or enrich your knowledge of the course's topics
+
+### Objectives
+- Make High-Level Education more accessible to people overall
+- Relieve stress in students by allowing an easy way to delve into a course's material
+
+### Restrictions and Drawbacks
+A major restriction about this idea is the sheer scope of it. It would take hundreds of willing contributors to complete the information database about a
+single high-level education institution, let alone all of them. Not to mention mention all the different languages that would need to be supported, 
+the verification of copyright rights of each resource. 
+
+Even if the database gets fully written, it would still need to be regularly maintained, such as filtering trolls and updating information. This is especially true
+for higher level courses about topics that aren't set in stone. An example would be a theoretical biology course that studies a certain model of a protein. 
+If later research determine that the protein's role or model is much different than what was previously hypothesized, then that entire section would have to be updated. 
+All fields might encounter this problem at some point with some of the most likely including most STEM fields, topics related to human behaviour, 
+and topics about the recent world.
+
+This is also a lot less helpful when relating to courses that aren't theoretical in nature. This database would only really be helpful for theory focused topics/classes.
+This isn't necessarily bad, but it is a drawback that might hurt the motivation of this project ever being finished.
+
+### Reasons for scrapping
+- Scope of this idea is simply way to big for it to be feasible for me
+- Discovered many universities already have course equivalency databases, making a huge part of this idea extremely useless
+- For Online learning, YouTube covers pretty much every topic. If not, there's almost definitely an online course somewhere you can use.
+- Basically, this idea is less useful than initially thought
