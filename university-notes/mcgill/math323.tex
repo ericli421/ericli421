@@ -1,0 +1,457 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written using the Overleaf latex editor.
+% Proofs are not included in these notes. 
+%%%%%%%%%%%%%%%
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{dsfont}
+
+\title{MATH 323 Summary}
+\author{Eric Li}
+\date{December 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Pre-Midterm stuff}
+I'm not writing set theory stuff that overlaps with other courses.\\
+Quick notation: $S$ is the universal set and $\phi$ is the empty set.
+\subsection{Basic stuff}
+\subsubsection{Definitions}%Lecture 1-2
+\textbf{Event:} An outcome of an experiment. A\textit{ simple event} is the outcome of one trial while a \textit{compound event} consists of two or more simple events. They are usually represented by an upper case letter, often $E$\\
+\textbf{Sample space: } The set of all possible outcomes of an experiment. Denoted $S$.
+\subsubsection{Kolmogorov's axioms}
+Consider an experiment with sample space $S$. To every event $A\subset S$, we associate the \textit{probability of A} $P(A)$.
+\begin{enumerate}
+    \item $P(A) \geq 0$
+    \item $P(S) = 1$
+    \item If $E_1,E_2,...$ are events in $S$ such that $E_i \cap E_j =  \phi$ for $i\ne j$, then $P(E_1\cup E_2\cup...)=\sum^{\infty}_{i=1} P(E_i)$
+\end{enumerate}
+\subsubsection{Bunch of Theorems}
+\begin{enumerate}
+    \item $P(A^c) = 1-P(A)$
+    \item $P(\phi) = 0$
+    \item $P(A\cap B^c)=P(A)-P(A\cap B)$
+    \item If $A\subset B$, then $P(A)\le P(B)$
+    \item $P(A\cup B) = P(A)+P(B)-P(A\cap B)$
+%%%%%%%%%%%%%%%%%%%%%%% Lecture 3-6 starting now %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \item Let S be a finite sample space with N equally likely events and let E be an event in S. Then $P(E) = \frac{n}{N}$ where n is the number of outcomes in E
+\end{enumerate}
+\subsection{Counting Rules}
+\subsubsection{Multiplication rule} If you have $k$ number of sets each with $n_i$ number of outcomes. The number of possible ways of choosing one object from each set is $n_1n_2...n_k$ (e.g. If you have three boxes with three colored balls each, you have $3\cdot3\cdot3$ ways of choosing one from each box)
+\subsubsection{Permutations of a set of items} The number of ways to arrange $n$ objects is $n!$ (e.g. arranging four different books on a shelf)
+\subsubsection{Permuations of select number of items} The number of ways to arrange $r$ out of $n$ objects is $^nP_r=\frac{n!}{(n-r)!}$ (e.g. placing 2 books out of 6 different total on a shelf where order matters)
+\subsubsection{Combinations} The number of ways to place $r$ out of $n$, when order is not important ${\binom{n}{r}} = {\frac{n!}{(n-r)!r!}}$ (e.g. ways to place 2 books out of 6 different total on a shelf where order doesn't matter)
+
+\subsection{Conditional probability}
+The important formula is a definition, which is \[P(A|B) = \frac{P(A\cap B)}{P(B)}\]
+(i.e. probability of B given A has occurred)\\
+We can derive this formula to give $P(A\cap B)= P(A|B) \cdot P(B)$\\\\
+\subsubsection{Special Cases}
+\begin{enumerate}
+    \item Let A and B be disjoint events where $A\cap B = \phi$. Then $P(B|A) = 0$
+    \item Let A and B be two events such that $B\subset A$. Then $P(B|A) = \frac{P(B)}{P(A)}$
+    \item Let A and B be two events such that $A\subset B$. Then $P(B|A) = \frac{P(A)}{P(A)} = 1$
+\end{enumerate}
+\subsubsection{Law of total probability \& Baye's theorem}
+A \textbf{partition} is a collection of sets which the union of all of them is the sample space and $B_i\cap B_j = \phi$ for all  $i\neq j$. If $B_1,B_2,...,B_k$ is a partition of S, then for any event $A$ in $S$
+\[P(A)=\sum_{i=1}^kP(A|B_i)P(B_i)\]
+This is the \textbf{law of total probability}
+%%%%%%%%%%%%%%%%%%%%%%% Lecture 7-9 starting now %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\\\\
+\textbf{Bayes' Theorem} is an extension of this theorem. For the same situation as above
+\[P(B_i|A)=\frac{P(A|B_i)P(B_i)}{\sum_{i=1}^{k}P(A|B_i)P(B_i)}\]
+For situations where you are asked to find the reverse of what you're given or one or more probability statements, use Bayes. If you're given some conditional probabilities$P(A|B_i)$ and some unconditional ones $P(B_i)$, use law of total probability.
+
+\subsubsection{Independence of Events}
+Independent events are when one event occurring does not affect the probability of the other events. Therefore $P(A|B) = P(A)$ \textit{($\leftarrow $This is the definition) }and $P(A\cap B) = P(A)P(B)$ \textit{($\leftarrow $This is a theorem)}.
+\\
+We write $A \bot B$ to write independent events.
+\\\\
+\textbf{Mutual independent events} are a bunch of events that are all independent to each other, i.e.
+\[P(A_1\cap A_2\cap ... \cap A_k) = P(A_1)P(A_2)...P(A_k)\]
+\textbf{Pairwise independent events} events where for all $i\ne j$,
+\[P(A_i\cap A_j) = P(A_i)P(A_j)\]
+Pairwise independence does not imply mutual independence. The result of the mutual independence formula does not imply the events being mutually independent, and for any two independent events, they are also independent to each other's complements.
+\\\\
+\textbf{Some theorem: }Let A and B be two events, where none of their probabilities is 0. If they're \textit{mutually exclusive}, where they have \textbf{nothing in common}, then they're not independent. Two mutually exclusive events are independent only if either one or both events have a zero probability.
+\subsection{Random Variables}
+A \textbf{random variable} is a function defined over a sample space. For example, toss a fair coin three times, and let $X$ be the number of tails observed. $X$ can take the values $0,1,2,3$, each with a probability associated to it
+\\\\
+There are two types of random variables. \textbf{Discrete random variables} (when it's finitely or infinitely countable), and \textbf{continuous random variables} (when it's infinitely uncountable)
+
+\section{Discrete Random Variables}
+Before hopping into the distribution functions of discrete variables, we must first see CDFs and PMFs
+\subsection{Culmulative Distribution Functions}
+%%%%%%%%%%%%%%%%%%%%%%% Lecture 10 starting now %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+One way to describe the probability distribution is by using a \textbf{Cumulative Distribution Function (CDF)}, defined as 
+\[F_X(x) = P(X\leq x), \forall x\in \mathds{R}\]
+(i.e. the probability that the value of X is within a certain range)
+For example, if we toss two fair coins and let X be the number of tails observed, the CDF looks like
+\[\text{For }x<0: P(X\leq x ) = 0\]
+\[\text{For }0\leq x<1: P(X\leq x ) = 1/4\]
+\[\text{For }1\leq x<2: P(X\leq x ) = 3/4\]
+\[\text{For }x\geq2: P(X\leq x ) = 1\]
+The domain of a CDF is $(-\infty,+\infty)$ while the range is [0,1].
+%%%%%%%%%%%%%%%%%%%%%%% Lecture 11-12 starting now %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{A theorem}
+\[P(a\leq x\leq b)=F_X(b)-F_X(a), \forall a<b\]
+The probability of a random variable being between two values is the result of the CDF at the higher value minus the result of the CDF at the lower value.
+\subsection{Probability Mass Function}
+This is another term used for the distribution of a discrete random variable. A \textbf{Probability Mass Function (PMF)} of a discrete random variable $X$ where $R_x =\{x_1,x_2,...\}$ is given by
+\[P_X(x_k)=P(X=x_k)\]
+Where it's greater than 0 if $x_k\in R_x$ and equal to 0 if $x_k\notin R_x$
+\\\\
+A PMF determines uniquely the probability distribution of X. Therefore, CDF can be determined using the PMF and vice versa.
+
+\[F_X(x_i) = \sum_{x\leq x_i}P(X=x)\]
+\[P(X=x_i) = F_X(x_i)-F_X(x_{i-1})\]
+
+\subsection{Simple Distribution Models}
+\subsubsection{The discrete uniform distribution}
+This happens when for $x_1,x_2,...,x_n\in \mathds{R}$
+\[p_X(x)= P(X=x) = \frac{1}{N}\]
+(i.e., we have N number of possible outcomes and the probability of X=x is 1/N.)\\
+(e.g. throw a die, let X be the number shown)
+\subsubsection{Bernouilli Distribution}
+A random variable X is said to have a Bernouilli distribution if it can only take two values, usually 0 or 1, True or False, successs or fail, etc.\\
+Let $p$ be probability of success. $P(X=1)=p$ and $P(X=0) = 1-p$ where $0<p<1$1\\
+The probability distribution in the form of a mathematical formula would look like 
+\[
+P(X=x) = \begin{cases}
+    p^x(1-p)^{1-x}\text{ if } x \in \{0,1\};\\
+    0 \hspace{6mm}\text{otherwise}
+\end{cases}
+\]
+\subsubsection{Binomial Distribution}
+If a random variable has these properties
+\begin{enumerate}
+    \item Consists of $n$ independent Bernouilli trials
+    \item The probability of success $p$ remains constant from trial to trial
+    \item We are interested in $x$ successes out of $n$ trials where $x\in\{1,2,...,n\}$
+\end{enumerate}
+Then it's a Binomial random variable and the probability distribution is called the Binomial Distribution. It's denoted $X\sim Binom(n,p)$\\
+Its probability distribution looks like 
+\[P(X=x)=\binom{n}{x}p^x(1-p)^{n-x} \hspace{3mm}\text{ where x = 0,1,2,...,n}\]
+%%%%%%%%%%%%%%%%%%%%%%% Lecture 13-14 starting now %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Geometric Distribution}
+A geometric distribution is when you are interested in the trial where the first success (or failure) will occur. For example, a factory is scanning products and we want to know the probability a defect appearing on the 5th scan.\\
+Let $X$ be the trial at which the first success occurs. 
+\[P(X=x) = (1-p)^{x-1}p\]
+\textbf{Remark:} both the Binomial Distribution and the Geometrical Distribution are similar. The Binomial distribution looks at how many successes there are while the geometric distribution looks at when the first success occurs.
+\subsubsection{The Negative Binomial Distribution}
+It's basically the Geometric Distribution, but instead of finding the first success at N trials, we want to find the $r^{th}$ success at N trials. (e.g. find the probability of the third success in 5 trials)\\
+If X is a Negative Binomial Random Variable, then 
+\[P(X=x) = \binom{x-1}{r-1}p^r(1-p)^{x-r}\]
+where $x$ is the number of trials and $r$ is the number of successes.
+\subsection{Less simple Distribution Models}
+The following concepts were probably not summarized well. Feel free to seach it up or check class notes if there's anything you don't understand.
+\subsubsection{Poisson Distribution}
+Used to model situations where you monitor number of occurrences of an event in a fixed time interval or the number of success in a very large number of trials.\\
+Let $X \sim Binom(n,p)$. Then for $np=\lambda$ where $\lambda$ is a constant
+\[\lim_{n\to\infty}\lim_{p\to 0}P(X=x)=\frac{\lambda^xe^{-\lambda}}{x!}\]
+We can approximate a binomial distribution with a Poisson approximation. If the value of $n$ is very large and the value of $p$ is very small, we can use the Poisson formula to approximate the value. If $n\geq 100$ and $np\leq10$, then Poisson provides a good approximation.
+\subsubsection{Hypergeometric Distribution}
+\textbf{Example: } There is a box with $a$ green balls and $b$ red balls. Let $a+b = N$, and you choose $n$ balls at random. Let $X$ be the number of green balls in your sample. Then
+\[P(X=x)=\frac{\binom{a}{x}\binom{N-a}{n-x}}{\binom{N}{n}}\]
+We can write a hypergeometric variable as $X\sim hypergeometric(N,n,a)$ where $x=0,1,2..min(a,n)$
+%%%%%%%%%%%%%%%%%%%%%%% Lecture 15 starting now %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Mathematical Expectation and Variance}
+\subsection{Definitions}
+\subsubsection{Expected Value}
+The \textbf{expected value} [E(x)] of a random variable X is the measure of centrality of X (i.e. the weighted average ).It's also known as the \textit{population mean} of X, and only exists if $E|X|$ converges. Usually denoted by $\mu_X)$, it's defined as 
+\[E(x)=\sum P(X=x_k) = \sum x_kp_X(x)\]
+\textbf{Properties of expected value}
+\begin{enumerate}
+    \item If a is a constant, then $E(a) =  a$
+    \item If a is a constant, then $E(aX)=aE(X)$
+    \item It's linear, i.e. $E(X_1,...,X_n)=E(X_1)+...+E(X_n)$
+\end{enumerate}
+\subsubsection{Variance}
+The \textbf{variance} of a random variable measures the spread of its distribution, defined as 
+\[Var(X)=E[(X-\mu_X)^2]= E[(X-E(X)^2)]\]
+\textbf{Properties of variance}
+\begin{enumerate}
+    \item The variance of random variable X denoted $\sigma^2_X$
+    \item The variance of random variable X is the expected value $(X-\mu_X)^2$
+    \item A larger value means a larger spread
+    \item $(X-\mu_X)^2\geq 0, Var (X)\geq 0$
+    \item The units of Var(X) are the same as the ones for $X^2$
+    \item $Var(cX) = c^2Var(X)$
+\end{enumerate}
+We can find variance through the following theorem
+\[Var(X)=E[X^2]-[E(X)]^2\]
+\subsubsection{Moments of Distribution}
+\textit{This concept is difficult to visualize or simplify to other concepts. They are very complex. They are explored more later}\\\\
+Let X be a discrete random variable, the \textbf{$k^{th}$ moment of X around the origin} is the expected value $E(X^k)$\\
+For example, the first moment is $E(X)$ while the second moment is $E(X^2)$
+\\\\
+For the \textbf{moment of X about the mean}, the $k^{th}$ moment of X about its mean $\mu_X$ is $E(X-\mu_x)^k$.\\
+For example, the first moment of X is $E(X-\mu_X)$, while the second moment is $E(X-\mu_X)^2$
+\\\\
+The mean of a random variable X ($E(X)$) is the first moment of X about its origin while its variance ($E(X-\mu)$) is its second moment about the mean. As such, moments are useful in finding the mean and variance of a random variable X. 
+\\\\
+\textbf{Factorial Moments}\\
+The $r^{th}$ factorial moment of X is
+\[E(X_r)=E[X\cdot(X-1)\cdot...\cdot (X-(r-1))\]
+For example, the first factorial moment of X is $E(X)$, while the second factorial moment is $E[X(X-1)]$
+
+\subsection{Mean and Variance of Two Distribution Models}
+\subsubsection{The Uniform Distribution}
+$E(X)=\frac1N\sum^N_{k=1}x_k=\overline x$ (basically the average)\\
+$Var(X)=E[X^2]-[E(X)]^2=\frac1N\sum^N_{k=1}x_k^2-\overline x^2$
+\subsubsection{Bernouilli Distribution}
+$E(X)=p$ (p is the probability of success)\\
+$Var(X)=p-p^2=p(1-p)$\\\\
+\textit{The remaining distributions is optional material. We don't need to learn them}
+%%%%%%%%%%%%%%%%%%%%%%% Lecture 16-17 starting now %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Continuous Random Variables}
+\textit{This section is the reason why MATH 141 (Calculus II) is a prerequisite for taking this course! Aren't you happy?! :)}
+\\\\
+A \textbf{continuous random variable} contain an interval of infinite possible outcomes. This means the outcomes are infinite and uncountable.\\
+The "official" definition is if $F_X(x)$ is a continuous function for all $x \in \mathds{R}$.\\\\
+For a continuous random variable, single points have probability zero. Therefore, $P(X\geq a) = P(X>a)$
+\subsection{Basic Functions}
+\subsubsection{Cumulative Distribution Function (CDF)}
+The \textbf{CDF} of a continuous random variable is a continuous function \textit{(just picture literally any $f(x) = ax^k+b$ function, you get the idea)}.  Therefore, unlike a discrete random variable, there are no jumps.\\\\
+The function is always increasing. It is never decreasing nor not increasing (flat horizontal line).
+\subsubsection{Probability Density Function (PDF)}
+A function $f(x)$ is called a \textbf{probability density function (PDF) of X} if, for $F(X)$ CDF of X.
+\[F_X(x)=\int_{-\infty}^xf_X(y)dy\]
+Properties of the PDF are:
+\begin{enumerate}
+    \item $f_X(x)\geq 0 \forall x(-\infty\leq x \leq \infty)$ if $f_X(x)$ is a PDF.
+    \item$\int_{-\infty}^{\infty}f_X(x)dx=1$
+    \item We can obtain a CDF from a PDF and vice versa
+    \item By the Fundamental Theorem of Calculus, $F_X(x)=\int_{-\infty}^xf_X(y)dy$ by the definition of a PDF, since $F_X'(x)=f_X(x)$
+\end{enumerate}
+
+\subsubsection{Probaility Mass Function (PMF)}
+The PDF of a discrete random variable does not give probabilities and is greater than one. For that, we have the PMF of discrete random variables $P(X=x)$. However, when integrated over a given interval, the PDF does give a probability. Go look at lecture notes 16-17 page 12 for more details.
+\subsection{Expected Value and Variance of continuous variables}
+The \textbf{expected value} and \textbf{variance} for continuous random variables are found like those of the discrete case by \textit{replacing the summations with integrals}. The formulas are
+\[E(X)=\int^\infty_{-\infty}xf(x)dx \hspace{2mm}\]
+for expected value where f(x) is the PDF and
+\[E(X-\mu)^2=\int^\infty_{-\infty}(x-\mu)^2f(x)dx\]
+\[Var(X)=E(X^2)-[E(X)]^2=\int^\infty_{-\infty}x^2f(x)dx-[E(X)]^2\]
+for variance where f(x) is the PDF.
+\\\\
+Properties expectated values for discrete variables hold for continuous variables. $E(c) = c$, $E(cX)=c(E(X))$, and $Var(aX+b)=a^2(Var(X))$\\\\
+\subsubsection{Moments of distribution}
+\textit{They are defined similarly to how they are defined in discrete random variables}\\\\
+The $k^{th}$ moment about the origin of a continous random variable X is \[E(X^k)=\int^\infty_{-\infty}x^kf(x)dx.\]
+The $k^{th}$ moment about the mean of a continous random variable X is \[E(x-\mu)^k=\int^\infty_{-\infty}x^kf(x)dx.\]
+\subsection{Special Distributions}
+This section will list out some special distributions for continuous variables
+\subsubsection{The Continuous Uniform Distribution}
+A continous random variable X has a \textbf{Uniform Distribution} over the interval $(a,b)$ if its PDF is given by
+\[f_X(x)=
+\begin{cases}
+\frac{1}{b-a}\text{ if a<x<b}\\
+0\text{ if } a>x\text{ or } b<x
+\end{cases}\]
+In other words, it happens if the probability is constant over a certain interval. This is denoted $X \sim Uniform(a,b)$\\\\
+The support of continous random variables is the set of all numbers whose probability density is strictly positive. Therefore, it's (a,b) for $X \sim Uniform(a,b)$. If $a=0, b=1$, then it's called the \textit{standard uniform distribution}\\\\
+The mean is $E(X)=\frac{a+b}{2}$, while the variance is $Var(X)=\frac{(b-a)^2}{12}$\\\\
+The CDF looks like 
+\[F_X(x)=\int^x_{-\infty}\frac{1}{b-a}dy=\frac{x-a}{b-a}\hspace{2mm}a<x<b\]
+\textit{It's a linear graph looking line}
+\subsubsection{The Gamma Distribution.}
+\textit{These are mostly used to model situations such as waiting times and electronic lifetimes. They look scary though}\\\\
+First, we need to define a \textbf{gamma function}. It's a function denoted by $\Gamma(\alpha)$ and defined by
+\[\Gamma(\alpha)=\int^\infty_0x^{\alpha-1}e^{-x}dx\]
+Some important properties are
+\begin{enumerate}
+    \item $\Gamma(\alpha)=(\alpha-1)\cdot\Gamma(\alpha-1)$
+    \item If n is a positive integer: $\Gamma(n)=(n-1)!$
+    \item $\Gamma(1/2)=\sqrt{(\pi)}$
+\end{enumerate}
+Now for the \textbf{gamma distribution}, its probability distribution, with parameters $\alpha>0$ and $\beta>0$ looks like
+\[
+f(x)=
+\begin{cases}
+    \frac{1}{\Gamma(\alpha)\cdot\beta^\alpha}(x^{\alpha-1})(e^\frac{-x}{\beta})\text{ if }x > 0\\
+    0 \text{ if otherwise}
+\end{cases}
+\]
+\textit{This formula is on the formula sheet. You don't need to memorize it :)}\\\\
+The \textit{mean} of the gamma distribution is found using the formula
+\[E(X)=\int^\infty_0xf(x)dx=\]
+which will simplify to
+\[E(X)=\alpha\beta\]
+The \textit{variance} of the gamma distribution is found using the formula
+\[Var(X) = E(X^2)-[E(X)]^2\]
+which will simplify to 
+\[Var(X) = \alpha\beta^2\]
+%%%%%%%%%%%%%%%%%%%%%%% Lecture 18-20 starting now %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{The Exponential Distribution}
+\textit{This is a gamma function, but with the parameter $\alpha=1$}\\\\
+Let $\alpha=1$, and $\lambda = \frac1\beta$ then the PDF of an exponential Distribution is
+\[
+f(x)=
+\begin{cases}
+    \lambda e^{-x\lambda}\text{ if }x > 0\\
+    0 \text{ if otherwise}
+\end{cases}
+\]
+and the CDF is
+\[
+F(x)=
+\begin{cases}
+    \int^x_0\lambda e^{-y\lambda}dy = 1- e^{-x\lambda}\text{ if }x 1> 0\\
+    0 \text{ if otherwise}
+\end{cases}
+\]
+It is denoted $x\sim exp(\beta)$. Some properties are
+\begin{enumerate}
+    \item $E(X)=\beta$
+    \item $Var(X) = \beta ^2$
+    \item It's memoryless (see below)
+\end{enumerate}
+\textbf{The memoryless property of the exponential distribution}
+\[P(X\geq a+x|X\geq a) = P(X\geq x)\]
+\textit{Basically, something that happened earlier will not affect the outcome of something happening next}
+\subsubsection{The Normal distribution}
+\textit{It's a bell shaped distribution thing. Think of an iq curve.}\\\\
+The PDF of a normal distributed variable is
+\[f(x)=\frac1{\sqrt{2\pi\sigma}}e^{-(x-\mu)^2/2\sigma^2}\]
+We cannot find closed-form expression for the integral of the Normal PDF. Therefore, we need numerical integration techniques to solve it\\\\
+Other properties are 
+\begin{enumerate}
+    \item The mean $\mu$ locates the center of the distribution
+    \item The shape of distribution is determined by $\sigma$. The larger $\sigma$ is, the larger the spread, and vice versa.
+    \item The normal distribution is perfectly symmetric
+    \item We need to know the numerica values of $\mu$ and $\sigma$ to graph the normal curve
+\end{enumerate}
+The normal distribution with $\mu = 0$ and $\sigma = 1$ is called the \textit{standard normal distribution.} It's centered at the origin and has unit spread. \\\\
+To covert a normal distributed variable $X$ into a standard normal distributed variable $Z$, the formula is
+$Z=\frac{X-\mu}{\sigma}$
+\subsubsection{The Chi-Square Distribution}
+\textit{This one is not on the final exam. Therefore, I will not summarize it, at least not now.}
+\section{Transformation of a random variable}
+\textit{Just imagine back in CEGEP physics when we had to covert units on data points}\\\\
+Transformation in data analysis are useful for several reasons
+\begin{enumerate}
+    \item Sometimes, it's convenient to use a transformed random variable rather than the original one
+    \item The transformation can help reduce skewness in the data (ex: $lnX, \sqrt{X}$
+\end{enumerate}
+There are three commonly used methods to find the probability distribution of a function of random variables
+\subsection{The CDF method (The Method of Distribution Functions)}
+Let X be a continuous random variable and $Y=f(X)$ be a function of X. $Y$ is therefore a continuous random variable too. The two steps of this method are
+\begin{enumerate}
+    \item Find the CDF of Y in terms of CDF of X
+    \item Differentiate the CDF to find the PDF of Y
+\end{enumerate}
+\subsection{The Change of Variable method (The Method of Transformations)}
+Let X be a continuous random variable and $Y=g(X)$ for some function g. Then, there are two cases
+\subsubsection{If $g$ is strictly increasing}
+\begin{enumerate}
+    \item Write the CDF of Y in terms of the CDF of X.
+    \item Differentiate above with respect to Y
+\end{enumerate}
+\[f_Y(y)=f_X(g^{-1}(y))\cdot\frac{d}{dy}(x)\]
+\[f_Y(y)=f_X(g^{-1}(y))\cdot\frac{1}{\frac{dx}{dy}}\]
+\subsubsection{If $g$ is a decreasing function}
+\[f_Y(y)=f_X(g^{-1}(y))\cdot\frac{-1}{|\frac{dy}{dx}|}\]
+The end result is
+\[f_Y(y)=f_X(g^{-1}(y))\cdot\frac{1}{|\frac{dy}{dx}|}\]
+%%%%%%%%%%%%%%%%%%%% Lecture 21 starts now %%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The method of moment generating functions}
+The moment generating function of the distribution of the random variable X is the function of a real parameter $t$ defined by
+\[M_X(t)=E[e^{tX}]\]
+for all $t\in\mathds{R}$, where the expectation $E[e^{txX}]$ is well defined.\\\\
+Read rest of lecture 21 for more
+%%%%%%%%%%%%%%%%%%%% Lecture 22 starts now %%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Multivariate Probability distributions}
+\textit{When there are two or more random variables}
+\subsection{Definitions}
+\subsubsection{Discrete Random Variables}
+Let $Y_1$ and $Y_2$ be discrete random variables. The joint (bivariate) probability function for $Y_1$ and $Y_2$ is given by 
+\[p(y_1,y_2)=P(Y=y_1\cap Y=y_2)=P(Y=y_1, Y=y_2)\]
+Some characteristics (intuitive)
+\begin{enumerate}
+    \item $p(y_1,y_2)\geq0$ for all $y_1,y_2$
+    \item $\sum_{y_1,y_2}p(y_1,y_2)=1$
+\end{enumerate}
+The joint CDF of $Y_1,Y_2$ is the function such that
+\[F_{Y_1,Y_2}(y_1,y_2)=P(Y\leq y_1\cap Y\leq y_2)=\sum_{t_1\leq y_1}\sum_{t_2\leq y_2}P(Y_1=y_1,Y_2=y_2)\]
+\subsubsection{Continuous Random Variables}
+Let $Y_1$ and $Y_2$ be continuous random variables. They are jointly continuous if their CDF $F_{Y_1Y_2}(y_1,y_2)=P(Y=y_1\cap Y=y_2)$ is continuous in both $y_1$ and $y_2$. The joint CDF is such that
+\[F_{Y_1Y_2}(y_1,y_2)=P(Y=y_1, Y=y_2)\]
+\[=\int^{y_1}_{-\infty}\int^{y_2}_{-\infty}f_{Y_1,Y_2}(t_1,t_2)dt_2dt_1\]
+More generally
+\[P(Y_1\leq y_1, Y_2 \leq y_2) = \int^{a_2}_{a_1}\int^{b_2}_{b_1}f_{Y_1,Y_2}(y_1,y_2)dy_2dy_1\]
+\subsection{Marginal Probability Distributions}
+\textit{Basically, when you only care about the result of one of the variables, you sum all the possible results of the other one.}
+The marginal PMFs of $Y_1,Y_2$ discrete random variables is
+$P(Y_1=y_1)=\sum_{y_2}p(y_1,y_2)$ and $P(Y_2=y_2)=\sum_{y_1}p(y_1,y_2)$
+The marginal PDFs is 
+\[f_{Y_1}(y_1)\int^\infty_{-\infty}f_{Y_1Y_2}(y_1,y_2)dy_2\]
+\[f_{Y_2}(y_2)\int^\infty_{-\infty}f_{Y_1Y_2}(y_1,y_2)dy_1\]
+The marginal CDFs is 
+\[F_{Y_1}(y_1)=F_{Y_1Y_2}(y_1,\infty)=\lim_{y_2\to\infty}F_{Y_1Y_2}(y_1,y_2)\]
+\[F_{Y_2}(y_2)=F_{Y_1Y_2}(\infty,y_2)=\lim_{y_1\to\infty}F_{Y_1Y_2}(y_1,y_2)\]
+To get PDF from CDF, we use the result 
+\[\frac{d(F_{Y_1Y_2}(y_1,y_2))}{dy_1dy_2}=f_{Y_1Y_2}(y_1,y_2)\]
+To get PMF from CDF, we differenciate the joint CDF, which gets messy.
+\subsection{Conditional probability}
+For discrete variables
+\[f_{Y_1|Y_2=y_2}(y_1|y_2)= \frac{\text{joint prob}}{\text{marginal prob of }Y_2}=\frac{P(y_1,y_2)}{P_{Y_2}(y_2)}\]
+For continuous variables
+\[f_{Y_1|Y_2=2}(y_1|y_2)=\frac{f(y_1,y_2)}{f_{Y_2}(y_2)}\]
+%%%%%%%%%%%%%%%%%%%% Lecture 23 starts now %%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Expectation and Variance}
+Let $g(Y_1,Y_2)$ be some function of $Y_1,Y_2$.
+\[E(g(Y_1,Y_2))=\int^\infty_{-\infty}\int^\infty_{-\infty}(g(Y_1,Y_2)f_{Y_1,Y_2}(y_1,y_2))dy_1dy_2\]
+\[E(g(Y_1,Y_2))=\sum_{\text{every }y_1}\sum_{\text{every }y_2}(g(Y_1,Y_2)P(Y_1=y_1,Y_2=y_2))dy_1dy_2\]
+The expected value $E(Y_1)$ is given by
+\[E(Y_1)=\int^\infty_{-\infty}y_1f_{Y_1}(y_1)dy_1\]
+\[E(Y_1)^k=\int^\infty_{-\infty}y_1^kf_{Y_1}(y_1)dy_1\]
+The conditional expected value of a function $G(Y_1)$ is
+\[E(g(Y_1)|Y_2=y_2)1=\int^\infty_{-\infty}g(y_1)f(y_1|y_2)dy_1\]
+if the two random variables are jointly continuous and 
+\[E(g(Y_1)|Y_2=y_2)1=\sum_{y_1}g(y_1)p(y_1|y_2)\]
+if they are jointly discrete.\\
+$p(y_1|y_2)$ is the conditional probability function while $f(y_1|y_2)$ is the conditional density function.\\
+If $g(Y_1)=Y_1$, then replace above formulas' $G(Y_1) = Y_1$ and $g(y_1) = y_1$
+\\\\
+For variance, it's the same formula as before
+\[Var(X)=E[X^2]-[E(X)]^2\]
+\subsection{Independence}
+If they are discrete random variables, with joint probability function $p(y_1,y_2)$ and marginal probability functions $p_1(y_1)$ and $p_2(y_2)$, then $Y_1,Y_2$ are independent if and only if 
+\[p(y_1,y_2)=p_1(y_1)\cdot p_2(y_2)\]
+for all pairs of real numbers
+\\\\\\
+\textbf{If} they are continuous random variables with joint density function $f(y_1,y_2)$ and marginal density functions $f_1(y_1)$ and $f_2(y_2)$ then $Y_1,Y_2$ are independent if and only if 
+\[f(y_1,y_2)=f_1(y_1)\cdot f_2(y_2)\]
+for all pairs of real numbers
+\\\\
+\textit{I love CTRL+C and CTRL+V}
+\subsection{Covariance}
+\textit{jk, it's not on the exam lol}
+\section{Sums of Random Variables}
+\textit{This is just an introduction.}
+\subsection{Moment generating function}
+The moment generating function of two independent variables $X+Y$ is
+\[M_{X+Y}(t)=E[e^{t(X+Y)}]=M_X(t)\cdot M_Y(t)\]
+\subsection{Central Limit Theorem}
+This theorem says that a large number of independently and identically distributed normal variables $X_is$ converges to Normal Distribution.
+\subsubsection{Independence characteristics}
+\begin{enumerate}
+    \item $f_{X_1,...,X_n}(x_1,...,x_n)=f_{X_1}(x_1)...f_{X_n}(x_n)$ (continuous)
+    \item $Var(\sum^n_{i=1}X_i=\sum^n_{i=1}Var(X_i)$
+    \item $M_{X_1...X_n}(t)=M_{X_1}(t)\cdot...\cdot M_{X_n}(t)$
+\end{enumerate}
+Define $S$ as the sum of a series of independently and identically distributed random variables.
+\[E(S)=E(X_1+...+X_n=n\mu\]
+\[Var(S)=Var(X_1+...X_n)=n\sigma^2 \text{ approx}\]
+\\\\
+\textbf{\Large{Given enough trials, probability is just statistics}}
+
+
+\end{document}

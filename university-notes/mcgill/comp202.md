@@ -160,7 +160,7 @@ print "Hello World"
 When we run this, we get the following output
 
 ```
-  File "<stdin>", line 1
+File "<stdin>", line 1
     print "Hello World!"
     ^^^^^^^^^^^^^^^^^^^^
 SyntaxError: Missing parentheses in call to 'print'. Did you mean print(...)?
@@ -178,17 +178,17 @@ Whenever your program produces an incorrect or unexpected result, it's called a 
 ### Value types
 Values are classified based on their types. For now, we will look at the following
 
-**Integer** type values (`int`) represent a whole number. These can be positive, negative or zero. Examples are `1`, `0`, `-2147483648` and `42`. 
+- **Integer** type values (`int`) represent a whole number. These can be positive, negative or zero. Examples are `1`, `0`, `-2147483648` and `42`. 
 
-**Floating point**, or float values (`float`), represent numbers with decimal points. Similar to integers, they can be positive, negative or zero. Although they cover a wider range of values, they are less precise than integers (and typically slower). Hence, we tend to avoid using floats whenever possible. Examples include `1.5`, `-0.0524`, `3.1415926535897932384` and `0.0`.
+- **Floating point**, or float values (`float`), represent numbers with decimal points. Similar to integers, they can be positive, negative or zero. Although they cover a wider range of values, they are less precise than integers (and typically slower). Hence, we tend to avoid using floats whenever possible. Examples include `1.5`, `-0.0524`, `3.1415926535897932384` and `0.0`.
 
-**Boolean** type values (`bool`) represent either `True` or `False`. 
+- **Boolean** type values (`bool`) represent either `True` or `False`. 
 
-The **None** type (`NoneType`) is a special type. It represents nothing and does nothing.
+- The **None** type (`NoneType`) is a special type. It represents nothing and does nothing.
 
-**String** type values (`str`) represent a series of characters. These are what we use whenever we want to represent text in a value. These are more complex than the previously mentioned values and will be explored more thoroughly later. However, here are some characteristic of strings.
-- In Python, you can write them in single quotes (' ') or double quotes (" "). Therefore `'Hello World!' == "Hello World!"` Note that this is not the case outside of Python
-- You can use the backslash `\` to represent special characters called escape sequences. The two common ones are `\n` to represent a new line and `\t` to represent a tab character. You can also use the backslash to use a character that would otherwise have a special function. For example, the string `"She said: \"I can't believe you did that\"\nAnd I was like: \"I did nothing! \t Did I?\""` would be printed out as
+- **String** type values (`str`) represent a series of characters. These are what we use whenever we want to represent text in a value. These are more complex than the previously mentioned values and will be explored more thoroughly later. However, here are some characteristic of strings.
+  - In Python, you can write them in single quotes (' ') or double quotes (" "). Therefore `'Hello World!' == "Hello World!"` Note that this is not the case outside of Python
+  - You can use the backslash `\` to represent special characters called escape sequences. The two common ones are `\n` to represent a new line and `\t` to represent a tab character. You can also use the backslash to use a character that would otherwise have a special function. For example, the string `"She said: \"I can't believe you did that\"\nAnd I was like: \"I did nothing! \t Did I?\""` would be printed out as
 
 ```
 She said: "I can't believe you did that"
@@ -377,10 +377,7 @@ You can technically write
 from math import *
 ```
 
-to import all functions this way and not have to write `math.` in front of any of them. This can work fine when you only have one simple module, but is not good practice when importing multiple modules or more complex ones as it may lead to conflicts widef sqrt(x):
-	"""
-	[insert code that calculates the square root of x here]
-	"""th existing variables and functions.
+to import all functions this way and not have to write `math.` in front of any of them. This can work fine when you only have one simple module, but is not good practice when importing multiple modules or more complex ones as it may lead to conflicts between existing variables and functions.
 
 By convention, all import statements should be found at the top of the file.
 
@@ -1124,17 +1121,17 @@ for index in range(len(my_list)):
 ```
 
 Here are a bunch of useful list methods, using `a` as an arbitrary list variable.
-- `len(x)` returns the length of the list
-- `x.append(element)` adds `element` to the end of the list
-- `x.pop(index)` remove element at specified index and returns it
-- `x.remove(element)` remove first instance of the specified element
-- `x.sort()` sorts the list
+- `len(a)` returns the length of the list
+- `a.append(element)` adds `element` to the end of the list
+- `a.pop(index)` remove element at specified index and returns it
+- `a.remove(element)` remove first instance of the specified element
+- `a.sort()` sorts the list
 
 ## String operations
 
 Unlike most other primitive types, strings have much more complexity about them. Here's a bunch of them
 
-Strings share a lot of functionality and methods with. You can index a string variable the same way you can index lists. Doing so will return the character at given index, with the first character being index 0
+Strings share a lot of functionality and methods with lists. You can index a string variable the same way you can index lists. Doing so will return the character at given index, with the first character being index 0
 
 ```python
 a = "Hello"

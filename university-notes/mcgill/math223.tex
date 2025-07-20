@@ -1,0 +1,263 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written using the Overleaf latex editor.
+% Proofs are not included in these notes. 
+%%%%%%%%%%%%%%%
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{dsfont}
+
+\title{MATH 223 Summary}
+\author{Eric Li}
+\date{December 2024}
+
+\begin{document}
+
+\maketitle
+%%%%%%%%%%%%%% Lecture 0-3 stuff %%%%%%%%%%%%%%%%%%%%%%
+\section{Foundations}
+\subsection{Vector Spaces}
+\subsubsection{A bunch of definitions}
+An \textbf{element} is  an object that exists.\\
+A \textbf{set} is a collection of elements.\\
+Sets can be written as a list of elements or in \textit{set builder notation}.\\
+A \textbf{subset} is a set that is\textit{ contained} in another set. Notation $A \subseteq B$\\
+Two sets are \textit{equal} if $A\subseteq B$ and $B\subseteq A$
+\\\\
+A non-empty set V is called a vector space if's equipped with two operations: addition and scalar multiplication.\\
+They have to satisfy these axioms for every $u,v,w\in V$ and $c,d\in\mathds{R}$\\
+\textit{Addition axioms}
+\begin{enumerate}
+    \item Associativity: $(u+v)+w = u+(v+w)$
+    \item Commutativity: $v+w=w+v$
+    \item Identity: There exists element called zero vector $0_v$ such that $0_v+v=v$.
+    \item Inverses: There exists $-v\in V$ for each $v\in V$ where $v+(-v) = 0_v$
+\end{enumerate}
+\textit{Scalar mult axioms}
+\begin{enumerate}
+    \item Associatuivity: $c\cdot (dv) = (cd) \cdot v$
+    \item Unit for scalar mult: $1v=v$
+    \item Distributivity: $c(u+v)=cu+cv$ and $(c+d)v=cv+dv$
+\end{enumerate}
+A \textbf{subspace} is a vector space $W\subseteq V$ if it's a vector space with the operations inherited from V.\\
+$W$ is \textbf{closed under addition} if $v+w\in W$ for every $v\in W,w\in W$\\
+$W$ is \textbf{closed under scalar multiplication} if $cv\in W$ for every $c\in\mathds{R}$ and $v\in W$\\\\
+A \textbf{linear combination} of vectors is a vector of the form $c_1v_1 + c_2v_2+...+c_nv_n = v$ where $c_i\in \mathds{R}$ and $v_i$ are vectors\\
+The \textit{set of all linear combinations of elements in S} is called the \textbf{span} of S\\
+A subset $B\subseteq V$ is called a \textbf{basis} if it spans v and its vectors are linearly independent. Every vector space has a basis\\\\
+A \textbf{sum} of two subspaces $U,W\subseteq V$ is the set $U+W=\{u+w=V|u\in U, v\in V\}$
+The sum is called a \textbf{direct sum }if every sum is \textit{unique}
+
+
+\subsubsection{A bunch of theorems}
+Let V be a vector space and $c\in\mathds{R}$
+\begin{enumerate}
+    \item $0\cdot v = 0_v\text{  and  } c\cdot 0_v = 0_v$
+    \item If $cv=0_v$ then either $c=0$ or $v=0_v$
+    \item $(-1)v = -v$
+\end{enumerate}
+Let V and W be vector spaces where $W\subseteq V$. $W$ is a subspace if and only if
+\begin{enumerate}
+    \item $0_v\in W$
+    \item W is closed under addition
+    \item W is closed under scalar mult.
+\end{enumerate}
+Let V be a vector space and $S\subseteq V$
+\begin{enumerate}
+    \item span(S) is a subspace of V containing S
+    \item If $W\subseteq V$ is a subspace of V containing S, then $span(S) \subseteq V$
+\end{enumerate}
+Suppose $\{v_1,v_2,...,v_n\}$ form a basis of V. Then every other basis also has n elements. This is called the dimension of V. \textit{(Lemma: Suppose $\{v_1,v_2,...,v_n\}$ span is a vector space V. Then every set of $k>n$ vector $\{w_1,...,w_k$ is linearly dependent.)
+}\\\\
+Suppose V is $n$-dimensional vector space
+\begin{enumerate}
+    \item Every set of more than $n$ elements in V is linearly dependent
+    \item No set of fewer than $n$ vectors span(V)
+    \item A set of $n$ elements forms a basis if and only it spans V and is linearly independent
+\end{enumerate}
+A set of polynomials $P_n$ has dimension $n+1$\\
+If $S$ is finite and $B$ is a basis of $W$, then for $W=span(S)$, there exists a basis for $W$.\\
+If $W$ is a subspace of $V$, then $dimW\leq dimV$ and they're equal if $W=V$\\\\
+Let $U,W$ be subspaces of V where V finite dim. Then, $dim(U+W) = dimU+dimW-dim(U\cap W)$
+
+\subsection{Linear Transformations}
+\subsubsection{Definitions}
+A \textbf{linear transformation} $T:V\rightarrow W$ is a function that preserves addition and scalar multiplication 
+\[T(v_1+v_2) = T(v_1) + T(v_2)\]
+\[T(cv) = cT(v)\]
+A \textbf{kernel} of T is the set of all vectors where the transformation gives the zero vector\\
+The \textbf{image} of T is the set of all possible vectors the transformation can output.\\
+The kernel is a subspace of V and the image a subspace of W if $T$ is a linear transformation.
+\\\\
+A function is \textbf{injective} if no two values of the domain give the same result 
+\[x,y\in X,x\ne y \rightarrow f(x)\ne f(y)\]
+A function is \textbf{surjective} if every element in the image has at least one element of the domain that maps to it
+\[\forall y\exists x f(x) = y \]
+A function is \textbf{bijective} if it's both \textit{injective} and \textit{surjective}
+\\\\
+The linear transformation $T$ is \textbf{invertible} if it's bijective. That means there exists lin. transf. $S:W\rightarrow V$. We call $S$ the inverse of T
+\\
+The \textbf{composition} $T\circ S(x)= T(S(x))$. 
+\subsubsection{Random theorem}
+Let $x=\{v_1,...,v_k\}$, let $T:V\rightarrow W$ be a linear transformation, then $T(x)$ span im(T) but don't necessarily form a  basis
+\subsubsection{Rank Nullity Theorem}
+Let V be finite dim vector space and $T:V\rightarrow W$ lin transf. then $dimV=dim(kerT)+dim(imT)$
+\subsubsection{Theorem about bijectivity}
+A function is injective if its kernel is the zero vector only. It's surjective if its image if everything in the universe.\\
+Let $T:V\rightarrow W$ be a linear transformation:
+\begin{enumerate}
+    \item If $dimV=dimW$, then T is injective $\leftrightarrow$ T is surjective
+    \item If $dimV<dimW$, then T is not surjective
+    \item If $dimV>dimW$, then T is not injective
+\end{enumerate}
+\subsubsection{Theorems about compositions}
+The composition of two lin. transformations is always a linear transformation.\\
+The composition of two invertible transformations is also invertible.\\\\
+Let $T:\mathds{R}^n\rightarrow\mathds{R}^m$ given by $T(\overrightarrow{x}) = A\overrightarrow{x}$. Let $S:\mathds{R}^m\rightarrow\mathds{R}^k$ given by $S(\overrightarrow{x}) = B\overrightarrow{x}$. 
+\begin{enumerate}
+    \item $(S\circ T) = (BA)\overrightarrow{x}$
+    \item If T is invertible, then $T^{-1}(\overrightarrow{y}) = A^{-1}(\overrightarrow{y})$
+\end{enumerate}
+
+\subsection{Coordinates} %Notes start at Lecture 11
+\subsubsection{Definitions}
+Let $B_1$ be a basis of $V$, $B_1=\{v_1,...,v_n\}$. Let $v\in V$, so $v$ can be expressed uniquely as a combination $v=c_1v_1+...+c_nv_n$. The coordinates of $v$ with respect to $B_1$ to be $[v]_{B_1} = \begin{bmatrix}
+    c_1\\
+    c_2\\
+    ...\\
+    c_n
+\end{bmatrix}$.\\
+Essentially, think of it as shifting your perspective from one situation to another, from one basis to another basis \textit{(thanks Axel)}.\\\\
+The \textbf{coordinate map} $[\bullet]:V\rightarrow\mathds{R}^n$ is the function sending v to $[v]_B$, given a basis $B=\{v_1,...,v_n\}$. This is an invertible linear transformation.\\\\
+If C is another basis of V of dimension n, then the \textbf{change of basis matrix from B to C} is the linear transformation $S_{B\rightarrow C}: \mathds{R}^n\rightarrow\mathds{R}^n$ defined $S_{B\rightarrow C}([v]_B)=[v]_C$. Remark that this is really linear
+
+\subsubsection{Changing bases notes} %Lecture 12 mostly$
+To change from a basis world to the abstract world is usually relatively trivial. The more challenging part is the change from the abstract world to a basis world usually.
+\subsubsection{Linear Transformations and coordinates} %Lecture 13
+Let $V$ and $W$ vector spaces, $T:V\rightarrow W$ linear transformation, $B$ basis of $V$, $C$ basis of $W$. The \textbf{matrix of T relative to $B$ and $C$} is $[T]_{B\rightarrow C}:\mathds{R}^n\rightarrow\mathds{R}^n$, defined by $[T]_{B\rightarrow C}[v]_B=[T(v)]_C$.\\\\
+(Theorem) The kernel of T corresponds via $[\bullet]_B$ to $ker[T]_{B\rightarrow C}$, while the image of T corresponds via $[\bullet]_C$ to $im[T]_{B\rightarrow C}$, the column space of $[T]_{B\rightarrow C}$\\\\
+If $T$ is invertible, then $[T]_{B\rightarrow C}$ is also invertible by the diagram.
+
+\section{Orthogonality and Inner Products} %Begins Lecture 14
+\subsection{Inner Products}
+\subsubsection{Definition}
+An \textbf{inner product} on a vector space $V$ is a function $\langle\cdot,\cdot\rangle V\times V\rightarrow \mathds{R}$ that satisfies for all $u,v,w\in V, c,d\in\mathds{R}$
+\begin{enumerate}
+    \item Bilinearity: $\langle cu+dv,w\rangle = c\langle u,w\rangle+d\langle v,w\rangle$ (same for if it's on the right side of the comma)
+    \item Symmetry: $\langle u,v\rangle = \langle v,u\rangle$
+    \item Positivity: $\langle v,v\rangle > 0$ if $u+v\neq 0_v$, and $\langle0_v,0_v\rangle=0$
+\end{enumerate}
+A vector space with an inner product is called an \textbf{inner product space}\\
+Every inner product induces a \textbf{norm} $||v|| = \sqrt{\langle v,v\rangle}$
+\subsection{Orthogonality}
+Two vectors $v,w$ in an \textit{Inner Product Space} (IPS) are called \textbf{orthogonal/perpendicular} if $\langle v,w\rangle =0$
+\\\\
+A set $S\subseteq V$ is \textbf{orthogonal} if $\langle v_1,v_2\rangle =0$ for all $v_1,v_2\in S$ with $v_1\neq v_2$ and $0_v \notin S$\\
+That set is called \textbf{orthonormal} if all its vectors have \textit{norm} 1\\
+A basis $B$ of $V$ is called an \textbf{orthogonal basis} if it's an orthogonal set (OGB)\\
+A basis $B$ of $V$ is called an \textbf{orthonormal basis} if it's an orthonormal set (ONB)
+\\(Theorem) A set of orthogonal vectors are linearly independent if none of them are $0_v$\\\\
+A vector V is said to be \textbf{orthogonal to a subspace} $W\subseteq V$ if ever vector in $V$ is orthogonal to every vector in $W$. We write $V\bot W$  
+\subsubsection{Guam Schmidt algorithm}
+Suppose $W$ finite dimension IPS, with basis $B=\{v_1,...,v_n\}$, then to find an OGB $C=\{w_1,...,w_n\}$ of $W$:
+ \[\text{1: } v_1=w_1\]
+\[\text{2:  }w_2=v_2-proj_{w_1}(v_2)= v_2 -\frac{\langle v_2,w_1\rangle}{\langle w_1,w_1 \rangle}w_1\]
+\[\text{3: }w_3=v_3-proj_{w_1}(v_3)-proj_{w_2}(v_3)\]
+Repeat until you find $w_n$. To find an ONB of W, normalize every vector in the OGB.
+\subsection{Orthogonal Projections}
+An \textbf{orthogonal projection} of $v\in V$ onto a subspace $W\subseteq V$ is the closet vector $w_V$ on $w$ to the vector v
+
+(Theorem) Let $V$ be an IPS. $W\subseteq V$ subspace and $v\in V$
+\begin{enumerate}
+    \item There always exists a vector $w\in W$ such that $z=v\cdot w\bot W$
+    \item If $B=\{W_1,...,W_k\}$ OGB of W, then
+    \[proj_{w}(v) = \frac{\langle v,w_1\rangle}{\langle w_1,w_1 \rangle}w_1+...+\frac{\langle v,w_k\rangle}{\langle w_k,w_k \rangle}w_k\]
+\end{enumerate}
+
+The orthogonal complement of a subspace $W\subseteq V$, denoted $W^\bot$ is the set of all vectors in $V$ that are orthogonal to $W$
+\\\\
+Properties of $W^\bot$ (theorem): Let $W$ be a subspace of V, $dimW=m$, $dimV=n$.
+\begin{enumerate}
+    \item $W^\bot$ is a subspace
+    \item If $B=\{w_1,...,w_m\}$ is a basis of $W$, then \[W^\bot=\{v\in V|\langle v_1,w_1\rangle=0 \forall(i=1,...,m\}\]
+    \item $W\cap W^\bot = \{0_v\}$
+    \item $dim(W)+dim(W^\bot) = dim(V)$
+    \item $(W^\bot)^\bot=W$
+\end{enumerate}
+\section{Diagonalization and Spectral Theorem} %Lecture 19 start$
+\subsection{Eigenvalues}
+\subsubsection{Definitions}
+Let $T:V\rightarrow V$, be a linear transformation where $V$ is finite dimensional. A vector $v\in V$ is called an \textbf{eigenvector} of $T$ if $T(v)=\lambda v$ for some $\lambda\in\mathds{R}$. The scalar $\lambda$ is called an \textbf{eigenvalue }of $T$. An \textbf{eigenspace} (related to $\lambda$) is the space of all eigenvectors with eigenvalues that are not $0_v$, defined:
+\[E_\lambda=\{v\in V|T(v)=\lambda v\}\]
+(Theorem) This is a subspace of $V$
+\subsubsection{Characteristic Polynomial}
+The \textbf{characteristic polynomial} of T $C_T(x)=det([T]_{B\rightarrow B}-xI)$ where $B$ is any basis of V, V is dimension $n$, and $I$ the $n\times n$ identity matrix.
+\\
+(Theorem) 
+\begin{enumerate}
+    \item $C_T(x)$ does not depend on the basis $B$
+    \item $C_T(x)$ is a polynomial of degree n
+    \item $\lambda$ is an eigenvalue of $T\leftrightarrow C_T(\lambda)=0$ (i.e. the eigenvalues of T are the roots of characteristic polynomials)
+    \item $v$ is an eigenvector with eigenvalue $\lambda$ if and only if $v\in ker(T-\lambda Iv$ and $v\ne 0_v$. (i.e. $E_\lambda = ker(T-\lambda I v))$
+\end{enumerate}
+
+For a step by step guide on finding eigenvalues, look at November 19th notes, or online.
+\subsection{Diagonizability}
+A linear transformation is said to be diagonlalizable if there exists a basis of $V$ composed of eigenvectors of $T$.\\
+In matrix terms, it would look like 
+$\begin{bmatrix}
+\lambda_1&0 &...&0\\
+0&\lambda_2&...&0\\
+...&...&...&...\\
+0&0&...&\lambda_n
+\end{bmatrix}$
+See November 19th notes for full process on finding this matrix.
+\\\\
+(Theorem) $T$ is diagonalizable if there exists a basis of $V$ such that $[T]_{B\rightarrow B}$ is a diagonal matrix
+\\\\
+An $n\times n$ matrix $A$ is a \textbf{diagonalizable matrix} the linear transformation defined by $T(\overrightarrow{x})=A(\overrightarrow{x})$ is diagonalizable, or if there exists an invertible matrix $Q$ and diagonal matrix $D$ such that $A=QDQ^{-1}$\\
+\textit{Remark: not all linear transformations are diagonalizable}\\\\
+A polynomial \textbf{splits(over $\mathds{R}$} if it can be factored into linear factors.
+(Theorem) If $T$ linear transformation is diagonalizable, then $C_T(x)$ splits
+\subsubsection{A slightly longer theorem about diagonalizability}
+Let $T:V\rightarrow V$ linear transformation. Let $\lambda_1,..,\lambda_k$ be distinct eigenvalues of T
+\begin{enumerate}
+    \item If $\lambda_i\neq\lambda_j$, then $E_{\lambda_i}\cap E_{\lambda_j}=\{0_v\}$
+    \item If we consider eigenvectors $v_i\in E_{\lambda_i},v_i\neq 0$ for each $i=1,...,k$, then each vector $v_i$ is linearly independent.
+\end{enumerate}
+\subsubsection{An even longer theorem}
+Let $T:V\rightarrow V$ linear transformation, $n=dimV$, let $\lambda_1,...,\lambda_k$ denote all the distinct eigenvalues of T. Let $B_i$ be a basis for eigenspace $E_{\lambda_i}$. Collect all these eigenvectors together, we get some some set $B=B_1\cup...\cup B_k$.\\\\
+Then $B$ is linearly independent and $|B|=\sum|B_i|$
+\\\\
+In other words, the max number of linear independent eigenvalues of T is equal to the number of eigenvectors in B ($=|B|$), which is equal to the sum of the number of linearly independent vectors in each eigenspace
+\\
+\textit{wtf?}
+
+\subsection{The last bits of MATH 223}
+Let $T:V\rightarrow V$ be a linear transformation with $\lambda$ as an eigenvalue.
+\begin{enumerate}
+    \item The \textbf{algebraic multiplicity} of $\lambda$ is the power of $(x-\lambda)$ in the characteristic polynomial $C_T(x)$
+    \item The geometric multiplicity of $\lambda$ is the dimension of $E_\lambda$
+\end{enumerate}
+(Theorem) The relationship between the algebraic and geometric multiplicity for any eigenvalue $\lambda$ is 
+\[1\leq \text{geom multiplicity} \leq \text{algebraic multiplicity}\]
+We can use these concepts to construct eigenbases.(See Nov. 26th notes)\\\\
+(Theorem) A linear transformation $T$ is
+\begin{enumerate}
+    \item not diagonalizable if $C_T(x)$ doesn't split
+    \item If $C_T(x)$ splits, then the geometric multiplicity is equal to the algebraic multiplicity if and only if $T$ is diagonalizable.
+\end{enumerate}
+(Theorem) If $T$ has distinct eigenvalues equal to the dimension of $V$, then it's diagonalizable %Lecture 23
+\subsubsection{Diagonalizability and matrices}
+A $n\times n$ matrix is \textbf{symmetric} if $A^T=A$ and (teacher hates this one) \textbf{an orthogonal matrix} if all its columns for an ONB of $\mathds{R}^n$ \\\\
+(Theorem) A matrix is orthogonal $\leftrightarrow A^T=A^{-1}$
+\\\\A matrix $A$ is \textbf{orthogonally diagonalizable} if there exists an ONB of $\mathds{R}^n$ composed of eigenvalues of $A$. Equivalently, there exists orthogonal matrix $Q$ and diagonal matrix $D$ such that $Q^TAQ=D$.
+\subsubsection{The spectral theorem}
+$A$ is orthogonally diagonalizable if and only if it's symmetric \\\textit{(this proof is really goofy hard so the teacher did not cover over half of it)}\\\\
+(Lemma) Let $A\in M_{n\times n}$, $\overrightarrow{u},\overrightarrow{b}\in \mathds{R}^m$, then $\langle A\overrightarrow{u},\overrightarrow{v}\rangle=\langle\overrightarrow{u},A^T\overrightarrow{v}\rangle$
+\\\\
+\huge{\textbf{AND WE'RE DONE. NEVER AGAIN DO WE HAVE TO TAKE THIS COURSE. FUCK MATH 223, ALL MY HOMIES HATE MATH 223. NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN NEVER AGAIN \newpage :3}}
+
+\end{document}  
