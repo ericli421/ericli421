@@ -1,0 +1,258 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{dsfont}
+
+\title{MATH 240 Summary}
+\author{Eric Li}
+\date{December 2024}
+
+\begin{document}
+
+\maketitle
+
+\textbf{Note: This summary filters a LOT of content that was taught in the course. Since this course is a bit of basic concepts and a lot of proofs, it was actually very tricky to summarize the course's content. This summary only covers what I consider to be the most important. Please do not use this alone to learn the content of discrete mathematics}
+
+
+\section{Foundation Concepts}
+Will not go over set identity stuff that is seen in many other courses.
+\subsection{Propositional Logic}
+A \textbf{proposition} is a statement that is either true or false\\
+A \textbf{propositional variable} or \textbf{boolean variable} is a variable that take the value of either 0 or 1 where 0 is True and 1 is false.\\
+A \textbf{formula} is an expression containing boolean variables, 0, 1 operators and parantheses. Needs to make sense in syntax. Two formulas are logically equivalent if they share the same \textbf{truth table}\\\\
+Propositional logic symbols have are the OR statement$\vee$, the AND statement $\wedge$, the NOT statement $\neg$, and the XOR statement (almost never used) $\otimes$. \\\\
+\textbf{Conditional} statements are in the form $A\rightarrow B$. This statement is false if A is true but B is false.\\
+\textbf{Biconditional} statements are in the from $A\leftrightarrow B$. This statement is true if and only if either A and B are true, or A and B are false.\\\\
+Formulas can be classified as
+\begin{itemize}
+    \item Tautology if $f\equiv1$
+    \item Contradiction if $f\equiv 0$
+    \item Contigency if $f$ can evaluate to both 0 and 1
+    \item Satisfyable if $f$ can evaluate to 1
+    \item Falsifiable if $f$ can evaluate to 0
+\end{itemize}
+A \textbf{predicate} is a statement containing some number of variables coming from universe U.\\
+Two ways of introducing variables are the "For All" $\forall x$ where the statement will be true if it holds for all $x\in U$ and the "there exists" $\exists$ where the statement will be true if there exists at least one $x\in U$ where the statement holds.
+\subsection{Proofs}
+\textit{The big thing in MATH 240}\\
+Basic idea:
+\begin{itemize}
+    \item To prove a $\forall$ statement, you must prove that it's true for all cases by letting $x\in U$ be given to us.
+    \item To prove a $\exists$ statement, you have to find an example where the statement is true
+\end{itemize}
+To prove a conditional statement $p\rightarrow q$, assume $p$ is true, prove q.\\\\
+To disprove a statement, prove its negation is true
+\subsubsection{Special proof methods}
+\textbf{Proof by contrapositive}\\
+Instead of proving $p\rightarrow q$, prove $\neg q\rightarrow\neg p$\\
+This might be easier to prove in some cases.\\\\
+\textbf{Proof by contradiction}\\
+Assume the statement is false, and derive an inconsistency out of it.\\\\
+\textbf{Proof by case analysis}\\
+Prove for every single case (e.g. all even/odd numbers, all rational/irrational numbers, all negative/postive/zero numbers)\\\\
+\textbf{Proof by induction}\\
+\textit{This one is a bit hard to simplify.}\\
+Prove that it's true for the base case, then prove that it holds true for every value afterwards.\\\\
+For example: to prove that positive numbers are numbers, you would prove that 1 is a number, than show that if n is a number, then n+1 is a number too.\\\\
+\textit{Yeah, this example sucks, deal with it}
+\subsection{Function}
+A \textbf{function} from a set $A$ to a set $B$ is a subset for which for every $a \in A$, there is exactly one $b \in B$ such that $(a,b)$ is in the function. A function $f: A\rightarrow B$ is \textbf{surjective} if for every $b \in B$, there exists an element $a \in A$ that maps to $b$. A function is \textbf{injective} if no two elements $a_1,a_2\in A$ where $a_1 \ne a_2$ map to the same element in $B$. A function is \textbf{bijective} if it's both.
+\\\\
+There's an important theorem in discrete mathematics called the \textbf{pigeonhole principle}. Let $n \ge 2$, If $n$ pigeons nest in $n-1$ holes, there is at least one hole that contains two pigeons. This sounds stupid, but is used a lot. This principle is a corollary of the following theorem
+\\\\
+Let $A$ and $B$ be finite sets with $|A| = m, |B| = n$. In every function $f:A\rightarrow B$, there is at least $\lceil m/n\rceil$ elements $a \in A$ with $f(a) = b$ for every $b\in B$
+\\\\
+A function is \textbf{invertible} if there exists $g:B\rightarrow A$ such that $f(g(b)) = b$ and $g(f(a)) = a$ for all $a\in A, b\in B$
+
+\subsection{Cardinality}
+The \textbf{cardinality} of a set is the number of elements it contains. We define two sets as \textit{equipotent} if there exists a bijection between them, written as $|A| = |B|$ where $A$ and $B$ are sets. A set is \textbf{countably infinite} if there exists a bijection $f: \mathds{N} \rightarrow A$. Otherwise, it is \textbf{uncountable}.
+\\\\
+Below will be listed a bunch of theorems related to cardinality
+\\\\
+\textit{(Schroder-Bernstein theorem)}: If there exists injective functions $f:A\rightarrow B$ and  $g: B \rightarrow A$, then there exists a bijection $h: A\rightarrow B$
+\\\\
+\textit{(Fundamental Theorem of Arithmetic)}: Every positive integer $n\ge 2$ can be factored into a product $p_1^{v_1}p_2^{v_2}...p_m^{v_m}$ where $m \ge 0$ is an integer, $p_1...p_m$ are distinct primes and $v_1...v_m$ are positive integers. This factorization is unique up to the order of primes
+\\\\
+$\mathds{N},\mathds{Z}, \text{ and } \mathds{Q}$ are countably infinite, but the set $A$ of all infinite binary strings is uncountable
+
+\subsection{Relations}
+A \textbf{relation} on a set $X$ is a subset $R \subseteq X\times X$. We write $aRb$ meaning "a is related to b". For all $a,b,c\in A$, a relation is \textbf{reflective} if $aRa$, \textbf{symmetrical} if for $aRb$ we have $bRa$, and \textbf{transitive} if with $aRb$ and $bRc$, we have $aRc$ also. If a relation is all three of these properties, we say it's an \textbf{equivalence relation}
+
+\section{Number Theory}
+\textit{Time to prove Riemann Hypothesis}
+\subsection{Division}
+Here, we're talking about the division relation, and not the division operation. Let $a,b \in \mathds{Z}$, we say $a$ \textbf{divides} $b$  if there exists $n\in \mathds{Z}$ such that $b = na$. The notation for the relation is $a|b$. This is the divides relation that will be used for all further concepts in number theory.
+\\\\
+The division algorithm states that there exists unique integers $q$ and $r$ such that for $a,b\in\mathds{Z}$ where $b>0$, $a=bq+r$, where $0\le r \le|B|$. This is needed to be able to use \textit{Euclid's algorithm}
+\\\\
+\textbf{Euclid's algorithm} is an algorithm to find the greatest common divisor ($gcd(a,b)$). It goes as follows. Given two non negative integers $a,b$
+\begin{enumerate}
+    \item If $b=0$, output $a$ and terminate the algorithm
+    \item When $b\ne0$, we may write $a=qb+r$ by the division algorithm. Set $a\leftarrow b$ and $b\leftarrow r$.
+\end{enumerate}
+This algorithm will terminate eventually, and we can therefore draw a lemma that $gcd(a,b) = gcd(b,r)$
+\\\\
+\textbf{Bézout's identity} is a theorem that allows use to express the greatest common divisor as a linear combination of the two integers. If we let $a,b$ be non zero integers, then there exists integers $s$ and $t$ such that $gcd(a,b) = sa+tb$
+\\\\
+We say two integers are \textit{coprime} or \textit{relatively prime} if  $gcd(a,b) = 1$
+
+\subsection{Primes}
+An integer $p$ is prime if $p \ge 2$ and for all $d|p$, we have $d = 1$ or $d=p$. Euclid proved that there are infinitely many primes. Here are many theorems relating to prime numbers.
+\\\\
+The \textit{prime number theorem} is an important theorem that helps us predict the distribution of primes. It states that \[\pi(x) = |\{p\le x:p \text{ prime}\} \rightarrow \pi(x) \approx \frac{x}{ln(x)}\] where $\pi(x)$ represents the prime counting function (a function that increases by 1 for each time $x$ is prime) and can be approximated to $\frac{x}{ln(x)}$. This proof is long and arduous.
+\\\\
+We can also rewrite the \textit{Fundamental Theorem of Arithmetic} as such: $n =p_1...p_k$, where $n$ is an integer $\ge 2$, and $p_1...p_m$ are primes. This states that any integer greater than 2 can be written as a product of primes, and that the factorization is unique.
+
+\subsection{Modular arithmetic}
+Fix $n\ge 1$ and let $a,b \in \mathds{Z}$. Then $a$ is congruent to $b$ modulo $n$ if $n|a-b$. We write this $a\equiv b (\text{mod }n)$ or $a\equiv_n b$
+\\\\
+We can have inverses in modular arithmetic. An element $a$ is called \textit{invertible modulo n} if there exists $b\in \mathds{Z}$ such that $ab \equiv_n 1$
+\\\\
+Now, introducing the following theorem:\\
+Let $a,n\in\mathds{Z}$ with $n\ge 2$. Then \begin{enumerate}
+    \item $a$ is inveritble modulo $n$ if and only if $gcd(a,n) = 1$
+    \item if $a$ is invertible, there exists a unique integer $b \in [0,n-1]$ such that $ab \equiv_n 1$. If $1=sa+tn$, then we can set $b=s \% n$ 
+\end{enumerate}
+This theorem allows us to find inverses of integers modulo other integers. To find the inverse of $a$ modulo $n$
+\begin{enumerate}
+    \item Find $gcd(a,n)$ using Euclid's algorithm
+    \item If $gcd(a,n) = 1$, find $s,t$ such that $1 = sa+tn$
+    \item $t$ is your inverse
+\end{enumerate}
+The last theorem to be written here will be \textit{Fermat's Little Theorem}. This states that if an integer $a\not\equiv_p 0$ where $p$ is a prime integer, then $a^{p-1} \equiv_p 1$.
+\subsection{Applications}
+The fun part about \textbf{number theory} is that up until the advent of computers, it was purely for theoretical knowledge. However, with our current technological world, number theory has practical uses is real life now.
+\subsubsection{ISBN}
+Every published book as an ISBN code that serves as a unique identifier. It is 10 digits long, although books published after 2007 have 3 extra digits. An intrecacy with ISBN identifiers is that the last digit is a \textit{check digit} that ensures the ISBN code isn't typed wrong. Every digit except the last one identifies the book, while the last digit is chosen such that 
+\[\sum^n_{i=1}id_i\equiv_n 0\]
+where $n$ is the number of digits in the ISBN code (currently 13, previously 10), and $d$ represents the digit in the $i^{th}$ position.
+\subsubsection{Divisibility tests}
+Remember back in 4th grade when we taught how to see if a number is divisible by 3? In case you forgot, if the sum of all digits of a number is divisible by 3, then the original number is also divisible by 3. The proof of this is using number theory, and is left as an exercise to the reader.
+\subsubsection{Large powers modulo n}
+This is an application of \textit{Fermat's Little Theorem}. Assume we want to find the congruence of $3^{123}$ mod 11. Using FLT, we can find $3^{10}\equiv_{11} 1$. Therefore, if we rewrite our original numbers
+\[3^{123} = 3^{10*12+3} = (3^{10})^{12}\times3^3\equiv_{11}1^{12} \times 3^3\]
+Simplifying further, we now only need to find $3^{3}$ mod 11. Much easier. This idea can be used for any large power
+\subsubsection{RSA cryptography}
+The \textbf{RSA} cryptosystem is an encryption system used relatively widely. Here's how it works.
+\\\\
+Assume an RSA user Alice. Alice would create two keys, a \textit{public key} and a \textit{private key}. Everyone would have access to the public key, but only Alice knows the private key. To create them, she would first need two primes $p,q$. They can be any primes, but ideally, she wants them to be very large. Now, she computes $n = pq$, which is then used as the modulo basis for the public key.
+\\\\
+With this, she picks an integer $k$ with $gcd(k,(p-1)(q-1))=1$. By an earlier theorem, there exists $s$ such that $ks\equiv_{(p-1)(q-1)}1$. $k$ becomes the public key, the integer $n$ is published and Alice keeps $s$ as the private key.
+\\\\
+Now assume Bob wants to send a message $M$ to Alice. Bob encrypts the message $\overline M = M ^k \% n$ and sends the encrypted message $\overline M$ to Alice. To decode $\overline M $, Alice just needs to compute $\overline M^s$.
+\\\\
+Assume a third person Carlos, who wants to crack the code. Since $n$ and $k$ are known, Carlos simply needs to find $s$, which he can trace back by attempting to factor $n$. This means that if $n$ is too small, it becomes trivial to crack the code. Then using RSA knowledge, Carlos can figure out the rest
+\\\\
+This is why in practice, RSA-cryptography is used with very large primes. Factoring very large numbers is very difficult as there does not exist a fast (polynomial time) algorithm to factor them yet (it's in NP-intermediate). Most computer scientists and mathematicians believe that a fast algorithm for integer factorization does not exist. However, that has yet to be proven
+\section{Graph Theory}
+\textit{Euler's baby}
+\\\\
+\textbf{Ok, this part involves a lot of visualization. I'm too lazy to import images so this will probably be the most confusing section. Bear with me}
+\\\\
+A \textbf{graph} is a pair of sets $G=(V,E)$ where $V$ is a nonempty set of elements called \textbf{vertices} and $E$ is a set of \textit{edges}, defined mathematically by
+\[ E\subseteq \{\{u,v\}:u,v\in V, u\ne v\}\]
+Two vertices of a graph are \textit{adjacent} if there exists an edge between them. That edge is \textit{incident on} the two vertices it connects. A graph is \textit{finite} if and only if $V$ is finite. For brievity, we write edges as $uv$ where $u,v$ are vertices the edge is incident on. The \textbf{adjacency matrix} of a grapph is defined to be the $n\times n$ matrix where $A_{ij}$ is set to 1 if $ij$ is an edge and 0 otherwise.
+\\\\
+A \textbf{complete graph}($K_n$) is a graph where every possible edge between each vertice is present.
+\\
+A \textit{Hamming cube or hypercube} is as graph $Q_n$ whose vertice set is the set of all binary strings of length $n$ and edge set is the set of pairs of strings that differ by exactly one bit. This one is incredibly tricky to understand without visualization, sorry.
+\\\\
+A vertex's \textbf{neighbors} are all vertexes to which the vertex shares an edge with. The vertex's \textbf{degree} ($deg(v)$) is the number of neighbors the vertex has. A graph is called \textit{k-regular} if all vertexes in a graph has degree $k$ for some $k\in\mathds{N}$.
+\\\\
+We can use the degrees to draw the following theorem for a finite graph $G=(V,E)$
+\[\sum_{v\in V} deg(v) = 2|E|\]
+Through this theorem, we can draw the following corollary, called the \textbf{Handshaking lemma}. In every finite simple graph, the number of vertices having odd degree is even.
+\\\\
+A \textbf{walk} is a sequence of vertices, denoted $\sigma = (v_0,v_1,...,v_n)$. The \textit{endpoints} of $\sigma$ are $v_0,v_n$. The \textit{length} of $\sigma$ is the number of edges traversed, denoted $|\sigma|$. If $v_0=v_n$, then the walk is \textit{closed}. Otherwise, it is \textit{open}. A walk is called a \textbf{path} if no vertex is repeated. A \textbf{cycle} is a closed path of length of at least 3.
+\\\\
+A graph is \textbf{connected} if for all vertexes in the graph, there exists a walk between them.
+\\\\
+A \textbf{subgraph} $G' =(V',E')$ of a graph $G=(V,E)$ is a graph such that $V'\subseteq V,\text{ and } E'\subseteq E$. An important inequality below sets restrictions onto the subgraphs.  
+\\\\
+(Cauchy-Schwarz inequality) For all $u_1,...,u_n\in \mathds{R}$ and $v_1,...,v_n\in \mathds{R}$
+\[(\sum^n_{i=1}u_iv_i)^2 = (\sum^n_{i=1}u_i^2)(\sum^n_{i=1}v_i^2)\]
+\subsection{Special cases}
+\subsubsection{Bipartite graphs}
+A \textbf{bipartite graph} is a graph that can be partitioned into a \textit{bipartition}, where all vertexes can be split into two subsets $A,B$ where $A\cap B = \emptyset$, and all edges connect a vertex from $A$ to a vertex from $B$. The \textit{complete bipartite graph} $K_{m,n}$ is a bipartite graph where every edge from every vertex in set $A$ to every vertex in set $B$ exists in the set of edges in the graph.
+\subsubsection{Trees}
+A graph is called a \textit{forest} if it has no cycles. A connected forest is called a \textbf{tree}. Each vertex of degree 1 in a tree is called a \textit{leaf}.
+\\\\
+A graph is a tree if and only if $|E|=|V|-1$ and the graph is connected.
+\subsubsection{Eulerian trails and circuits}
+\textit{Hi Euler}
+\\
+In a graph $G=(V,E)$, a walk is called an \textbf{Eulerian trail} if it uses every edge of a graph exactly once. It's also called an \textbf{Eulerian circuit} if it's closed.
+\\\\
+Assume $G$ to be connected and finite. $G$ has an Eulerian circuit if and only if all its vertices have even degree. 
+\\\\
+If $G$ has an Eulerian trail, then it isn't an Eulerian circuit if and only if two vertices of $G$ have an odd degree
+\subsubsection{Planar Graphs}
+A \textbf{planar graph} $G$ is a graph that we can draw without any edges crossing. Such a drawing is called a \textit{planar embedding} of $G$. Any subgraphs of a planar graph is also planar.
+\\\\
+A planar embedding will determine regions, called \textit{faces} bounded by the edges. The \textit{Euler characteristic} of a planar embedding is defined as the quantity
+\[\chi = |V| - |E| + f\]
+where $f$ is the number of faces, and $\chi$ (chi) is the Euler characteristic.
+\\\\
+(Euler's formula) Assume $G=(V,E)$ is a connected planar graph, then the Euler characteristic of $G$ equals 2
+\\\\
+There exists a corollary that proves that the complete graph $K_5$, the complete bipartite graph $K_{3,3}$ are non plana. This segues into Wagner's Theorem, stating that $K_5$ or $K_{3,3}$ are a graph minor of any nonplanar graph. (A graph minor $H$ of graph $G$ is a graph that can be reached by deleting vertexes, edges or by contracting edges of $G$). This also segues into Kuratowski's theorem, stating that any non planar graph contains a subdivision of either $K_5$ or $K_{3,3}$ as a subgraph.
+\section{Combinatorics}
+\textit{The art of counting}
+\\\\
+Combinatorics refers to a branch of mathematics dealing with counting the cardinalities of finite sets.
+\\\\
+Often times, we will use the \textbf{Principle of inclusion and exclusion} theorem. This is a a generalization of the expression $A\cup B = A+B-A\cap B$
+\\\\
+Let $n\ge2$ be an integer and $A_1,...,A_n$ be finite sets. Then \textit{(scary math formula incoming)}
+\[|\bigcup_{i=1}^nA_i| = \sum^n_{k=1}(-1)^{k+1}(\sum_{1\le i_1 \le ... \le i_k \le n}|A_{i_1} \cap...\cap A_k|)\]
+\\\\
+This formula looks terrifying but is just a pretty basic concept generalized.
+\\\\
+The following \textit{binomial theorem} is used in the proof of above formula. For all $x,y\in\mathds{R}$ and positive integers $n$
+\[(x+y)^n\ = \sum ^n_{k=0} ({n\choose k}x^ky^{n-k}\]
+\subsection{Permutations and combinations}
+We define a \textit{k-permutation} of a set $X$ as a subset of $X$ where order matters. If the permutation equals the size of the original set, we just call it a \textit{permutation}. This section will be dedicated to applications of permutations
+\subsubsection{Counting grid paths}
+Assume a terribly designed city laid out as a giant grid of roads. Imagine we want to go from one corner south-west to another corner north-east, and we want to know how many different paths we can take to arrive there (assuming we can only travel north and east). Well let's assume the shortest path we have takes 7 moves north and 4 moves east. There are ${11\choose 7}$ ways we can choose when we go north, and ${11\choose 4}$ ways we can choose when to go east. Therefore, if we calculate
+\[{11 \choose 4} = 330  \text{ and } {11 \choose 7} = 330\]
+This intuitively makes sense. The number of ways of choosing $k$ elements and $n-k$ elements from a total of $n$ elements is the same.
+\subsubsection{Stars and bars}
+This following example describes a technique called the \textit{stars and bars technique.} Imagine there are two balls and three bins. How many ways are there to distribute the two balls? The answer is 6: ${2+3-1\choose 3-1} = 6$, or a more general formula: ${n+k-1 \choose k-1}$ where $n$ is the number of balls we try to split into $k$ different bins
+\subsubsection{Poker}
+Assume a deck of 52 poker cards and we want to calculate how many five-card hands have at least two hearts. To do so, we calculate 
+\[{13\choose 2}{52-13\choose 3} = 712842\]
+It may feel intuitive to do ${50 \choose 3}$ for the non hearts, but doing it like that would result in double counting hands.
+
+\subsubsection{Pascal's identity}
+This theorem relates to an observation made when laying out binomial coefficients into a triangle
+\\\\
+Let $n\ge 0, k\ge 1$ be integers, then
+\[{n \choose k} = {n-1 \choose k} + {n-1 \choose k-1}\]
+\\\\
+\textit{There are more applications related to permutations and combinations. Take a discrete maths course or read your own notes for more. I'm tired of writing those for now.}
+
+\subsection{Applications of the pigeonhole principle}
+Remember the \textbf{pigeonhole principle}? If not, go back up a few pages. This section contains examples where we can use that principle.
+\subsubsection{Sheep enclosure}
+Assume five sheep in a square enclosure of length of 20 meters for each side. We can prove that the largest distance two sheep in that enclosure will be is $\sqrt{200}$.
+\\\\
+First, we define the "holes" in our enclosure. In this case, it will be quadrants. Five sheep for four quadrants means one quadrant will have at least 2 sheep. Since each quadrant is a square of side length 10 meters, the furthest two sheep can be from each other in that case is if they are on opposite diagonals, which is $\sqrt{10^2 + 10^2} = \sqrt{200}$.
+\subsubsection{Subset sums}
+Let $A \subseteq \{1,2,...,100\} \text{ with }  |A| = 10$. To prove that there has to be subsets $X\subseteq A$ and $Y\subseteq A$ where $X\ne Y$ and the sum of every element in $X$ equals the sum of every element in $Y$, we first define the function $f:2^A \rightarrow \mathds{N}$
+\[f(X)= \sum_{x\in X}x\]
+Now, if we want to find the maximum sum, it's if $A$ is numbers 100 to 91. Meaning
+\[f(X) \le 100+99+...+91 \le 1000\]
+Finding the minimum sum is trivial (0). This means the set of possible sums is $\{0,1,...,100\}$, which we will define as our holes. We have $2^{|A|} = 2^{10} = 1024$ pigeons for 1000 holes, so at least two pigeons must nest in the same hole. This means that the above statement is true (and $f$ is not injective).
+\\\\
+\textit{Stupid pigeons}
+\subsection{Recurrances}
+\textit{This section is pretty useful in computer science when dealing with recursion.}
+\\\\
+A \textbf{recurrance relation} for a formula is when $a_n$ is defined by at least one previous term $a_m$ where $m<n$. Perhaps the most known recurrence relation is that of the \textit{Fibonnaci sequence}, where each term is the sum of the two terms that came before it.
+\\\\
+To "solve" a recurrence relation, we want to derive a formula that isn't recursive about the relation. In general, the final formula we will be looking for will have the form $a_n = cb^n$
+\\\\
+There are more about recurrences, all of which are a nightmare to simplify. I will not be writing them. Sorrry :3
+\end{document}
