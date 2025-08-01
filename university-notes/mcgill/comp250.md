@@ -8,9 +8,9 @@ public class COMP250 {
 
 This course is an introductory course to concepts seen and used in the field of computer science. It starts diving into more advanced concepts and lays down the ground work needed to enter many of the more advanced topics in the field.
 
-The course uses the Java programming language for its course work. However, familiarity with Java will be taught during the first few weeks.
+The course uses the Java programming language for its course work. Familiarity with Java will be taught.
 
-This course has [COMP 202 - Foundations of Programming](obsidian://open?vault=Obsidian%20Vault&file=COMP%2FCOMP%20202%2FCOMP%20202%20Course%20Overview) (or equivalent) and [MATH 140 - Calculus 1](#insert-link-here) (or equivalent) as a prerequisites. It also has [MATH 133 - Linear Algebra and Geometry](#insert-link-here) as corequisite. Note that COMP 202 can be skipped with sufficient programming experience. 
+This course has [COMP 202 - Foundations of Programming](./comp202.md) (or equivalent) and [MATH 140 - Calculus 1](https://coursecatalogue.mcgill.ca/courses/math-140/) (or equivalent) as a prerequisites. It also has [MATH 133 - Linear Algebra and Geometry](https://coursecatalogue.mcgill.ca/courses/math-133/) as corequisite. Note that COMP 202 can be skipped with sufficient programming experience. 
 
 ---
 
