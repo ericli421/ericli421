@@ -69,7 +69,7 @@ This course has [COMP 202 - Foundations of Programming](obsidian://open?vault=Ob
 
 [^ Back to top](#table-of-contents)
 
-> Ok, let's put this out of the way first: you are probably not going to learn how to make Minecraft 2 after taking this course. Got it? Nice
+> Ok, let's put this out of the way first: you are probably not going to learn how to make Minecraft 2 from this. Got it? Nice
 
 By this point in your computer science journey, you are assumed to have become familiar with at least one programming language. If you have taken [COMP 202 - Foundations of Programming](https://www.mcgill.ca/study/2024-2025/courses/comp-202) , then that should be Python. This course will be using the Java programming language.
 
@@ -84,7 +84,7 @@ To write in Java, you will need two essential components. First is the [**Java D
 
 [^ Back to top](#table-of-contents)
 
-This section will speedrun through the details of how to write a Java program, and will mostly use Python as a source of reference. Ready? This will go by quickly. 
+> This section will speedrun through the details of how to write a Java program, and will mostly use Python as a source of reference. Ready? This will go by quickly. 
 
 Java is an Object Oriented Programming language by nature (will go over in more detail later). Everything you write in Java has to be part of a class for an object. Every Java program will have a class name that matches the file name. For example, if you have a file called `HelloWorld.java`, your code will have to start at some point with
 
@@ -94,7 +94,7 @@ public class HelloWorld {
 }
 ```
 
-> This is no longer necessary in the newer versions of Java, but for the sake of this course, it is designed to be adaptable to any version of Java. I promise you we will manage to make you hate Java boilerplate by the end of this course.
+> This is no longer necessary in the newer versions of Java, but for the sake of this course, it is designed to be adaptable to any version of Java. I promise you will hate Java boilerplate by the end of this course.
 
 You may notice the curly brackets `{}` used in the code. If you come from the C family, Javascript, or basically any language that isn't Python, you are already familiar with how they work. In Java (and basically every other popular programming language), we use curly braces`{}` to define code blocks. Think of how you use indentations in Python, and you have how to use curly brackets in Java. This means that all forms of indentation is completely optional in Java and you could hypothetically write your entire Java program in a single line. Practically though, we still use indentation to make the code readable
 
