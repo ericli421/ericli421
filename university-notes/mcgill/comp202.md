@@ -88,7 +88,7 @@ An **algorithm** is a _step by step procedure for solving a problem or accomplis
 
 To visualize an algorithm, we can use flow charts. For example, here's a flowchart that describes an algorithm for how I get out of bed in the morning
 
-![Getting out of bed joke example](./images/comp202/comp202-flowchart-example.png)
+![Getting out of bed joke example](./images/comp202/flowchart-example.png)
 
 > Of course, this flowchart isn't perfect. I made it in 10 minutes on gimp. This flowchart is missing a start point and an end point, and it probably could've been more detailed.
 
