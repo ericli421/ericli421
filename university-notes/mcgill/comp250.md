@@ -1452,6 +1452,15 @@ We've now looked at the two most basic ways of storing data, which are the basic
 
 **LinkedLists** are very efficient when it comes to inserting and removing data at the beginning or end. Since a linked list is essentially a collection of pointers, it's very fast to modify those to adapt to new changes. However, list traversal and access is much slower. Accessing any element except the first and last element will take traversing part of, or the entire list to do so. Use Linked lists if you need fast insertion/removals.
 
+|               | ArrayList | Singly Linked List | Doubly linked List |
+|---------------|-----------|--------------------|--------------------|
+| get()         | $O(1)$    | $O(n)$             | $O(n)$             |
+| addFirst()    | $O(n)$    | $O(1)$             | $O(1)$             |
+| addLast()     | $O(1)$*   | $O(1)$             | $O(1)$             |
+| removeFirst() | $O(n)$    | $O(1)$             | $O(1)$             |
+| removeLast()  | $O(1)$    | $O(n)$             | $O(1)$             |
+
+*\* if list is not full*
 
 ---
 ## Model data structures
