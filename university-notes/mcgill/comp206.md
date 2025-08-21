@@ -1,3 +1,5 @@
+# COMP 206 - Introduction to Software Systems
+
 ```bash
 #!/bin/bash
 

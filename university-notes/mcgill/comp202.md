@@ -1,3 +1,5 @@
+# COMP 202 - Foundations of Programming
+
 ```python
 print("COMP 202 - Foundations of Programming")
 ```

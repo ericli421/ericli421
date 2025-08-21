@@ -1,3 +1,5 @@
+# COMP 250 - Introduction to Computer Science
+
 ```java
 public class COMP250 {
 	public static void main(String[] args){
