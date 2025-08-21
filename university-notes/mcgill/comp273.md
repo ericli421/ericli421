@@ -1088,6 +1088,7 @@ Put it all together, we get
 | **Field** | opcode | rs    | rt    | rd    | shamt | funct  |
 | --------- | ------ | ----- | ----- | ----- | ----- | ------ |
 | **Bits**  | 000000 | 01001 | 01010 | 01000 | 00000 | 100000 |
+
 which we can simplify in hexadecimal to be `0x012A4020`
 
 ### I format instructions
@@ -1114,6 +1115,7 @@ Put it all together, we get
 | **Field Name** | opcode | rs    | rt    | immediate        |
 | -------------- | ------ | ----- | ----- | ---------------- |
 | **Bits**       | 001000 | 10101 | 10110 | 1111111111001110 |
+
 which we can simplify in hexadecimal to be `0x22B6FFCE`
 
 #### Large immediates
