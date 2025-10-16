@@ -8,7 +8,7 @@ This course is an introductory course to the world of programming. It goes over 
 
 This course has two sister courses: [COMP 204 - Computer Programming for Life Sciences](https://coursecatalogue.mcgill.ca/courses/comp-204/), and  [COMP 208 - Computer Programming for Physical Sciences and Engineering](https://coursecatalogue.mcgill.ca/courses/comp-208/). All these courses cover more or less the same content, but the two mentioned above are tailored towards Life Science students and Engineering Students respectively. This course targets a more general audience. 
 
-This course uses the [Python programming language](https://www.python.org/), a high level general purpose programming language. However, the concepts gone over this course are applicable to all programming languages (Java, C, etc.)
+This course uses the [Python programming language](https://www.python.org/), a high level general purpose multi-paradigm programming language. However, the concepts gone over this course are applicable to all programming languages (Java, C, etc.)
 
 Note that this course is skippable with sufficient programming knowledge.
 
