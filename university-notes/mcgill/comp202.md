@@ -40,9 +40,9 @@ Dictionaries, Exceptions, File I/O, Debugging, Exception Handling
 
 Object Oriented Programming concepts
 
-- **Unit 7**: \[Optional\] Other content
+- [**Unit 7**: Optional Content](#unit-7-optional-content)
 
-The `numpy` library, the `matplotlib` library, sets
+External libraries
 
 
 
@@ -1631,6 +1631,204 @@ These concepts are not easy to grasp at first, and OOP is not always the solutio
 
 [Back to top ^](#table-of-contents)
 
-# Unit 7: \[Optional\] Other Content
+# Unit 7: Optional Content
 
-Will write this part later
+> As the name suggests, this unit covers content that is optional to get through COMP 202. However, these tools are a massive help if you want to use Python to handle data efficiently, which is useful for both computer science fields and non computer science fields.
+
+## Installing external libraries
+
+So far, every module you've imported has been either a *built-in* module, meaning it came packaged with python, or a self-defined module that you coded yourself. Those are not the only modules you can install however.
+
+One of the reasons Python is such a popular programming language is because of its vast ecosystem of external libraries. These are collections of modules that allow greater flexibility with the language and improves overall efficiency.
+
+The way you install external modules on Python is dependent on your operating system. For most devices however, you may use the `pip` package manager. To install `pip`, run `python get-pip.py` on the terminal. If that doesn't work, search up how to install it on the internet.
+
+Now we can take a look at some popular external modules.
+
+## Matplotlib
+
+```
+# Mac & Linux
+pip3 install -U matplotlib
+
+# Windows
+python -m pip install -U matplotlib
+```
+
+Matplotlib is a popular data plotting module that makes visualizing data easier. It is used to generate graphs and charts with a given set of data.
+
+The most used module from this library is the `pyplot` module. As such, it is very common to import this library as such
+
+```python
+import matplotlib.pyplot as plt
+```
+
+Here are some example usages. You can run the code yourself to see the resulting graphs
+
+```python
+import matplotlib.pyplot as plt
+
+values = [1,5,1,4,2]
+plt.plot(values) # Graphs the values out
+plt.show() # Shows the graph on the screen
+```
+
+```python
+x_values = list(range(10))
+y_values = [x*x for x in x_values]
+
+plt.plot(x_values, y_values) #specify both x and y values
+plt.show()
+```
+
+```python
+# We're doing mostly the same graph as above
+x_values = list(range(10))
+y_values = [x*x for x in x_values]
+
+# But this time, we're giving names to the axis and giving a title to the graph
+plt.title("A second power polynomial function", fontsize=16)
+plt.ylabel("y values", fontsize=14)
+plt.ylabel("x values", fontsize=14)
+
+plt.plot(x_values, y_values) #specify both x and y values
+plt.show()
+```
+
+```python
+# Let's do a bar graph this time
+x_values = list(range(10))
+y_values = [x*x for x in x_values]
+
+# But this time, we're giving names to the axis and giving a title to the graph
+plt.title("A second power polynomial function", fontsize=16)
+plt.ylabel("y values", fontsize=14)
+plt.ylabel("x values", fontsize=14)
+
+plt.bar(x_values, y_values, width=2, color='green') #specify both x and y values
+#There are other graphs you can do, such as plt.scatter()
+
+plt.show()
+
+plt.savefig("plot.png") #Save the graph as an image
+```
+
+## Numpy
+
+```
+# Mac & Linux
+pip3 install -U numpy
+
+# Windows
+python -m pip install -U numpy
+```
+
+Numpy is another popular data plotting module, possibly the most popular one. It stands for numerical python and is the core ,library for scientific computing.
+
+The core of numpy is the numpy array, a structure similar to a list, but more efficient. Here are some core differences
+- A numpy array is a multidimensional grid of values with rows and columns.
+- All values in the array must be of the same type
+- The array's size cannot be changed after initialization. This means no appending/removing elements.
+
+To create a numpy array from a basic python list, we may use the `array()` method
+
+```python
+import numpy as np #Most common way of importing numpy
+
+arr = np.array([1,2,3])
+
+print(arr) #prints [1 2 3] (notice lack of commas)
+print(type(arr)) #prints <class 'numpy.ndarray'>
+```
+
+We may specify the type of the data we're storing when creating the array
+
+```python
+x = np.array([1.2, 3.4, 5.67], dtype=int)
+print(x) # prints([1 3 5])
+print(x.dtype) # prints int64
+
+y = np.array([20,40,60], dtype=np.float64) # This is a numpy defined type
+print(y) # prints [10. 20. 30.]
+print(y.dtype) # prints float64
+```
+
+We cannot call `len()` on a numpy array. Instead, we use the shape attribute
+
+```python
+x = np.array([1,2,3])
+print(x.shape) # prints (3,)
+```
+
+We can find the dimensions of a numpy array using the `ndim` attribute
+
+```python
+x = np.array([1,2,3])
+print(x.shape) # prints (3,)
+print(x.ndim) # prints 1
+
+y = np.array([[10,20,30,40], [50,60,70,80], [90,100,110,120]])
+print(y.shape) #prints (3,4)
+print(y.ndim) #prints 2
+```
+
+We can index a numpy array the same way we would a regular list
+
+```python
+x = np.array([1,2,3])
+print(x[1]) # prints 2
+
+x[2] = 12 # we can't add new elements, but we can modify existing ones
+print(x) # prints [1 2 12]
+```
+
+Here are other ways of creating numpy arrays
+
+```python
+np.zeros(2) # creates an array of zeroes. Parameter is number of zeros
+np.ones(3,dtype=int) # creates an array of ones. Parameter is number of ones
+np.full(5,7) #creates an array of shape 5 full of 7
+np.random.random(4) # Creates an array of 4 random values in range (0,1)
+```
+
+So far, we've just looked at different ways of creating lists. Where numpy really shines are the mathematical operations that we can do with them. Take the following example
+
+```python
+a = [1,2,3] # Python list
+b = np.array(a) # numpy array
+
+print(a*3) # prints [1,2,3,1,2,3,1,2,3]
+print(b*3) # prints [3 6 9]
+```
+
+This is called broadcasting operations, and it's the concept that allows us to perform an operation on every element of a numpy array. 
+
+Here are other numpy methods/functionalities
+
+```python
+a = np.arrange(10) # similar to the range() function, but floats are allowed
+print(a) # prints [0 1 2 3 4 5 6 7 8 9]
+
+b = np.linspace(0,1,num=5) #Creates an array of evenly spaced numbers
+print(b) # prints [0.  0.25 0.5 0.75 1. ]
+
+print(b * 4) # prints [0. 1. 2. 3. 4.]
+
+np.set_printoptions(precision=3) # make numpy round values to 3 decimal places
+
+
+print(np.sin(b)) #prints [0.    0.247 0.479 0.682 0.841]
+print(np.exp(b)) #prints [1.    1.284 1.649 2.117 2.718]
+```
+
+## How to use these external libraries effectively
+
+Of course, this is not all that numpy and matplotlib can do. These libraries are so vast that it would be impossible to cover all their use cases in a single note package. However, the modern era has come up with a wonderful tool to make navigating through these packages much easier: AI language models
+
+AI language models have been trained on data about problems that programmers had in the past and available on the internet. As such, any problem you have with these packages was likely had by another person before you some time in the past. The best use case for these models is to prompt it on your current model and let it show the method that would be best to solve your current problem
+
+> For those of you reading this and wondering "what's the point of learning this if I can get ChatGPT" to do it for me: Yes, AI is a very powerful tool to boost productivity, but a tool is only as powerful as the one wielding it. You still need a basic understanding of what you're doing to be able to use it effectively, This is especially true when it comes to recognizing when AI makes a mistake. Because AI does make mistakes, and it's up to you to recognize it.
+
+> Also, This is not me condoning using AI to do your assignments. Getting ChatGPT to code in Python for you will not develop any of the programming skills you can obtain from this course.
+
+[Back to top ^](#table-of-contents)
